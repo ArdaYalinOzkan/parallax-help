@@ -710,3 +710,18 @@ a:hover { text-decoration-color: currentColor; }
     font-size: 0.82rem;
     color: var(--star-hi);
 }
+
+/* Only one platform's steps are shown at a time. */
+.platform-steps.hidden { display: none; }
+
+.platform-steps pre {
+    margin: 0;
+    padding: 12px 14px;
+    border-radius: var(--r-sm);
+    background: var(--ink-void);
+    border: 1px solid var(--line-faint);
+    overflow-x: auto;
+    font-family: var(--font-mono);
+    font-size: 0.76rem;
+    color: var(--star);
+}
