@@ -1,0 +1,133 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>How updates reach you — Parallax Launcher</title>
+    <meta name="description" content="Three ways to install Parallax Launcher and how updates arrive in each.">
+    <meta name="theme-color" content="#05060A">
+    <link rel="icon" href="icon.svg" type="image/svg+xml">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="stylesheet"
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap">
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <div class="sky" aria-hidden="true">
+        <div class="sky__layer sky__haze"></div>
+        <div class="sky__layer" id="skyFar"></div>
+        <div class="sky__layer" id="skyNear"></div>
+        <div class="sky__grain" id="skyGrain"></div>
+    </div>
+
+    <div class="page">
+        <header class="top">
+            <div class="wrap top__in">
+                <a class="brand" href="./">
+                    <svg viewBox="0 0 100 100" fill="none" aria-hidden="true">
+                        <path d="M50 14L64 22V38L50 46L36 38V22L50 14Z" stroke="#EEF1F6" stroke-width="5" />
+                        <path d="M36 38L50 46V62L36 70L22 62V46L36 38Z" stroke="#EEF1F6" stroke-width="5" />
+                        <path d="M64 38L78 46V62L64 70L50 62V46L64 38Z" stroke="#EEF1F6" stroke-width="5" />
+                    </svg>
+                    <span>Parallax</span>
+                </a>
+                <nav class="top__links">
+                    <a href="./">All guides</a>
+                    <a href="https://parallax-launcher.duckdns.org/#get">Download</a>
+                </nav>
+            </div>
+        </header>
+
+        <main>
+            <section class="hero wrap" style="padding-block-end: clamp(30px, 5vh, 54px);">
+                <span class="label rise rise--1">All systems</span>
+                <h1 class="rise rise--2" style="max-width: 16ch;">How updates reach you.</h1>
+                <p class="lede rise rise--3" style="max-width: 58ch;">
+                    Three ways to install, and updates arrive differently in each. You do not
+                    have to choose — you already did, when you picked a file.
+                </p>
+            </section>
+
+            <section class="wrap" style="padding-block-start: 0;">
+                <div class="grid">
+                    <div class="cell">
+                        <span class="cell__num">.AppImage</span>
+                        <h3>The app fetches it</h3>
+                        <p>One file, so it can replace itself. It checks once a day, tells you
+                            when there is something newer, and downloads only after you press
+                            the button. Nothing arrives unasked.</p>
+                    </div>
+                    <div class="cell">
+                        <span class="cell__num">.exe</span>
+                        <h3>The app fetches it</h3>
+                        <p>Same as above, and it downloads only the parts that changed rather
+                            than the whole installer. Because it installs per user, no
+                            administrator password is needed to update.</p>
+                    </div>
+                    <div class="cell">
+                        <span class="cell__num">.deb</span>
+                        <h3>Either, your choice</h3>
+                        <p>On its own it updates itself through <code>dpkg</code>, which asks
+                            for your password the way any install does. Add the repository and
+                            your system takes over instead — see below.</p>
+                    </div>
+                </div>
+            </section>
+
+            <section class="wrap">
+                <span class="label">Debian and Ubuntu</span>
+                <h2>Letting apt do it instead.</h2>
+                <p class="lede">
+                    Add the package repository once and Parallax joins your normal updates. One
+                    button in the software centre brings it up to date along with everything
+                    else, and the app stops asking.
+                </p>
+                <p style="font-size: .88rem; color: var(--star-dim);">
+                    The app notices when you have done this and steps back — two updaters
+                    chasing the same package would offer you the same version twice.
+                </p>
+                <p style="margin-top: 22px;">
+                    <a class="btn btn--primary"
+                        href="https://github.com/ArdaYalinOzkan/parallax-apt">The commands, on GitHub</a>
+                </p>
+            </section>
+
+            <section class="wrap">
+                <span class="label">If you would rather not</span>
+                <h2>Turning the checking off.</h2>
+                <p class="lede">
+                    Settings → About → <em style="font-style: normal; color: var(--star-hi);">Check
+                    automatically</em>. With it off, nothing contacts GitHub unless you press the
+                    button yourself.
+                </p>
+                <p style="font-size: .88rem; color: var(--star-dim); max-width: 62ch;">
+                    An update check is a request to a server, which means an IP address and a
+                    version number leave your machine. That is worth being able to decline, so
+                    you can.
+                </p>
+            </section>
+        </main>
+
+        <footer class="foot">
+            <div class="wrap foot__in">
+                <div>
+                    Parallax Launcher — created by Arda Yalın Özkan.<br>
+                    Free software under the
+                    <a href="https://github.com/ArdaYalinOzkan/parallax-launcher/blob/main/LICENSE">GNU GPL v3</a>.
+                </div>
+                <div>
+                    <a href="./">All guides</a> ·
+                    <a href="https://parallax-launcher.duckdns.org/">Home</a> ·
+                    <a href="https://github.com/ArdaYalinOzkan/parallax-launcher">Source</a>
+                </div>
+            </div>
+        </footer>
+    </div>
+
+    <script src="site.js"></script>
+</body>
+
+</html>
