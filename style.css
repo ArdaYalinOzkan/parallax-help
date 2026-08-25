@@ -820,3 +820,185 @@ a:hover { text-decoration-color: currentColor; }
         background-position: calc(100% - 13px) center, calc(100% - 9px) center;
     }
 }
+
+/* ==============================================================
+   Drawers
+   ==============================================================
+   Three ways to install and only one of them is the reader's. Open
+   drawers rather than three sections in a row: the two that do not
+   apply cost nothing to skip, and closed <details> costs nothing to
+   render either.
+
+   `name` makes the browser keep one open at a time on its own.
+   Browsers that do not know the attribute yet fall back to the
+   script in help.js, which does the same thing by hand.
+   ============================================================== */
+
+.drawers {
+    margin-top: 30px;
+    border-top: 1px solid var(--line);
+}
+
+.drawer {
+    border-bottom: 1px solid var(--line);
+}
+
+.drawer summary {
+    display: flex;
+    align-items: baseline;
+    gap: 14px;
+    padding: 20px 2px;
+    cursor: pointer;
+    list-style: none;
+    transition: color .18s ease;
+}
+
+.drawer summary::-webkit-details-marker { display: none; }
+
+/* The caret, which turns when the drawer opens. */
+.drawer summary::before {
+    content: "";
+    width: 7px;
+    height: 7px;
+    border-right: 1.5px solid var(--star-faint);
+    border-bottom: 1.5px solid var(--star-faint);
+    transform: rotate(-45deg) translateY(-2px);
+    transition: transform .2s ease, border-color .2s ease;
+    flex: none;
+    align-self: center;
+}
+
+.drawer[open] summary::before { transform: rotate(45deg); }
+
+.drawer summary:hover::before,
+.drawer[open] summary::before { border-color: var(--star); }
+
+.drawer__title {
+    font-size: 1.06rem;
+    font-weight: 600;
+    color: var(--star);
+    transition: color .18s ease;
+}
+
+.drawer summary:hover .drawer__title,
+.drawer[open] .drawer__title { color: var(--star-hi); }
+
+.drawer__hint {
+    font-family: var(--font-mono);
+    font-size: 0.74rem;
+    color: var(--star-faint);
+    margin-left: auto;
+    text-align: right;
+}
+
+.drawer__body {
+    padding: 0 0 26px 21px;
+    max-width: 62ch;
+}
+
+.drawer__body > p:first-child { margin-top: 0; }
+.drawer__body p:last-child { margin-bottom: 0; }
+.drawer__body .steps { margin-top: 4px; }
+
+@media (max-width: 560px) {
+    .drawer__hint { display: none; }
+    .drawer__body { padding-left: 0; }
+}
+
+/* ==============================================================
+   Code with a copy button in its corner
+   ============================================================== */
+
+.snippet {
+    position: relative;
+    margin-top: 12px;
+}
+
+.snippet pre {
+    margin: 0;
+    /* Room on the right so the first line does not start underneath
+       the button. Once scrolled the code passes behind it, which is
+       fine — the button is opaque. */
+    padding: 14px 82px 14px 16px;
+    border-radius: var(--r-sm);
+    background: var(--ink-void);
+    border: 1px solid var(--line-faint);
+    overflow-x: auto;
+}
+
+.snippet pre code {
+    font-family: var(--font-mono);
+    font-size: 0.76rem;
+    line-height: 1.85;
+    white-space: pre;
+}
+
+.snippet__copy {
+    position: absolute;
+    top: 8px;
+    right: 8px;
+    padding: 4px 10px;
+    border: 1px solid var(--line);
+    border-radius: var(--r-sm);
+    background: var(--ink-base);
+    color: var(--star-faint);
+    font-family: var(--font-mono);
+    font-size: 0.62rem;
+    letter-spacing: .12em;
+    text-transform: uppercase;
+    cursor: pointer;
+    transition: color .18s ease, border-color .18s ease;
+    opacity: 1;
+}
+
+.snippet:hover .snippet__copy { color: var(--star-dim); }
+
+.snippet__copy:hover,
+.snippet__copy:focus-visible,
+.snippet__copy[data-done="1"] {
+    color: var(--star-hi);
+    border-color: var(--star-faint);
+}
+
+/* Groups on the guide index. Eight cards in one run is a list to get
+   through; three headed groups is a place to look something up. */
+.group {
+    padding-block: clamp(18px, 3vh, 30px);
+}
+
+.group__h {
+    font-size: 0.72rem;
+    font-family: var(--font-mono);
+    font-weight: 500;
+    letter-spacing: .18em;
+    text-transform: uppercase;
+    color: var(--star-faint);
+    margin: 0 0 16px;
+}
+
+/* A list that reads as prose rather than as a form. */
+.plain {
+    margin: 16px 0 0;
+    padding: 0;
+    list-style: none;
+}
+
+.plain li {
+    position: relative;
+    padding-left: 18px;
+    margin-bottom: 11px;
+    color: var(--star-dim);
+    line-height: 1.75;
+}
+
+.plain li::before {
+    content: "";
+    position: absolute;
+    left: 2px;
+    top: 0.72em;
+    width: 5px;
+    height: 1px;
+    background: var(--star-faint);
+}
+
+.plain li:last-child { margin-bottom: 0; }

@@ -1,0 +1,258 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Parallax from a command line — Parallax Launcher</title>
+    <meta name="description" content="Read a library, start a game, add an entry — from a script, or from an assistant asked to put something on.">
+    <meta name="theme-color" content="#05060A">
+    <link rel="icon" href="favicon.svg" type="image/svg+xml">
+    <link rel="alternate icon" href="favicon.ico" sizes="any">
+    <link rel="apple-touch-icon" href="apple-touch-icon.png" sizes="180x180">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="stylesheet"
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap">
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <div class="sky" aria-hidden="true">
+        <div class="sky__layer sky__haze"></div>
+        <div class="sky__layer" id="skyFar"></div>
+        <div class="sky__layer" id="skyNear"></div>
+        <div class="sky__grain" id="skyGrain"></div>
+    </div>
+
+    <div class="page">
+        <header class="top">
+            <div class="wrap top__in">
+                <a class="brand" href="index.html">
+                    <svg viewBox="0 0 100 100" fill="none" aria-hidden="true">
+                        <path d="M50.00 15.00 L32.68 25.00 L32.68 45.00 L50.00 55.00 L67.32 45.00 L67.32 25.00 Z" stroke="#EEF1F6" stroke-width="5" />
+                        <path d="M32.68 45.00 L15.36 55.00 L15.36 75.00 L32.68 85.00 L50.00 75.00 L50.00 55.00 Z" stroke="#EEF1F6" stroke-width="5" />
+                        <path d="M67.32 45.00 L50.00 55.00 L50.00 75.00 L67.32 85.00 L84.64 75.00 L84.64 55.00 Z" stroke="#EEF1F6" stroke-width="5" />
+                    </svg>
+                    <span>Parallax</span>
+                </a>
+                <nav class="top__links">
+                    <a href="index.html" data-i18n="NAV_GUIDES">All guides</a>
+                    <a href="https://github.com/ArdaYalinOzkan/parallax-launcher" data-i18n="NAV_SOURCE">Source</a>
+                    <span class="langpick__slot" data-lang-mount></span>
+                </nav>
+            </div>
+        </header>
+
+        <main>
+            <section class="hero wrap" style="padding-block-end: clamp(20px, 3vh, 32px);">
+                <p class="label rise rise--1" data-i18n="CLI_KICKER">Automation</p>
+                <h1 class="rise rise--2" style="max-width: 18ch;" data-i18n="CLI_H1">Parallax from a command line.</h1>
+                <p class="lede rise rise--3" style="max-width: 60ch;" data-i18n="CLI_LEDE">
+                    A command-line interface for reading the library, starting games and editing
+                    entries. Intended for scripts and for AI assistants working on a user's
+                    library.
+                </p>
+            </section>
+
+            <section class="wrap" style="padding-block-start: 0;">
+
+                <h2 data-i18n="CLI_RUN_H">How to run it</h2>
+                <p style="max-width: 62ch;" data-i18n="CLI_RUN_P_html">
+                    There is nothing extra to install. The command line lives inside the copy of
+                    Parallax already on the machine and is reached with <code>--cli</code>;
+                    everything after that flag is the command.
+                </p>
+
+                <div class="snippet">
+                    <button class="snippet__copy" type="button" data-copy data-i18n="COPY">Copy</button>
+                    <pre><code>parallax-launcher --cli games --json
+./Parallax-Launcher.AppImage --cli games --json
+"C:\Path\To\Parallax Launcher.exe" --cli games --json</code></pre>
+                </div>
+
+                <p class="note" style="max-width: 62ch;" data-i18n="CLI_RUN_NOTE_html">
+                    On Windows the installer lets you choose where it goes, so there is no single
+                    path to quote — the Start menu shortcut points at it. No window opens and no
+                    display is needed, so this works over SSH and inside a container. It exits
+                    <code>0</code> when it worked and <code>1</code> when it did not.
+                </p>
+
+                <p style="max-width: 62ch;" data-i18n="CLI_ALIAS_P">Worth giving it a shorter name, once:</p>
+                <div class="snippet">
+                    <button class="snippet__copy" type="button" data-copy data-i18n="COPY">Copy</button>
+                    <pre><code>alias parallax='parallax-launcher --cli'</code></pre>
+                </div>
+
+                <h2 style="margin-top: 44px;" data-i18n="CLI_AGENT_H">If you are the agent reading this</h2>
+                <p style="max-width: 62ch;" data-i18n="CLI_AGENT_P_html">
+                    Pass <code>--json</code> to everything. Output is then one JSON object with an
+                    <code>ok</code> field, and on failure an <code>error</code> code and a
+                    <code>message</code> written for you to act on rather than to print. The codes
+                    are stable and the messages are not, so branch on the code.
+                </p>
+
+                <div class="snippet">
+                    <button class="snippet__copy" type="button" data-copy data-i18n="COPY">Copy</button>
+                    <pre><code>{
+  "ok": false,
+  "error": "AMBIGUOUS_GAME",
+  "message": "\"half\" matches 7 games: Half-Life, Half-Life 2, … Use the id."
+}</code></pre>
+                </div>
+
+                <p style="max-width: 62ch; margin-top: 18px;" data-i18n="CLI_NAME_P_html">
+                    Games are named by <code>id</code> or by name, and the name does not have to be
+                    exact — <code>half life 2</code> finds <em>Half-Life 2</em>. When a loose name
+                    matches more than one game it refuses and lists them rather than choosing; use
+                    the <code>id</code> from that list. Ids are stable and never reused.
+                </p>
+
+                <h2 style="margin-top: 44px;" data-i18n="CLI_CMD_H">The commands</h2>
+
+                <div class="snippet">
+                    <button class="snippet__copy" type="button" data-copy data-i18n="COPY">Copy</button>
+                    <pre><code>parallax accounts
+parallax games [--installed] [--search TEXT] [--sort name|playtime]
+parallax game &lt;id|name&gt;
+parallax find &lt;name&gt; [--appid N]
+parallax fields
+
+parallax launch &lt;id|name&gt;
+parallax add &lt;name&gt; [--path P] [--steam-appid N] [--platform P]
+parallax set &lt;id|name&gt; &lt;field&gt; &lt;value&gt;
+parallax scan</code></pre>
+                </div>
+
+                <p style="max-width: 62ch; margin-top: 18px;" data-i18n="CLI_ACCOUNT_P_html">
+                    <code>--account NAME</code> works on any of them. Without it the library the app
+                    used last is chosen; where there are several and none has been used, it asks
+                    rather than guessing.
+                </p>
+
+                <ol class="steps" style="margin-top: 22px;">
+                    <li class="step" style="grid-template-columns: 1fr;">
+                        <div class="step__body">
+                            <span class="step__n">games</span>
+                            <p data-i18n="CLI_D_GAMES_html">Every game in the library.
+                                <code>--installed</code> narrows it to what is on this machine,
+                                <code>--search</code> to names containing some text. Each carries
+                                <code>id</code>, <code>name</code>, <code>platform</code>,
+                                <code>status</code>, <code>installed</code>, <code>path</code>,
+                                <code>playTimeHours</code>, <code>steamAppId</code>,
+                                <code>category</code>, <code>launchOptions</code> and
+                                <code>compatTool</code>.</p>
+                        </div>
+                    </li>
+                    <li class="step" style="grid-template-columns: 1fr;">
+                        <div class="step__body">
+                            <span class="step__n">launch</span>
+                            <p data-i18n="CLI_D_LAUNCH_html">Starts a game the way the Play button
+                                does — through Steam when the game is Steam's, otherwise by running
+                                it with whatever compatibility tool the entry is set to. It returns
+                                once the game has been handed off and does not wait for it to close.
+                                A game with a Steam id goes to Steam whether or not it is installed;
+                                one with neither a Steam id nor a location fails with
+                                <code>NO_PATH</code>.</p>
+                        </div>
+                    </li>
+                    <li class="step" style="grid-template-columns: 1fr;">
+                        <div class="step__body">
+                            <span class="step__n">find</span>
+                            <p data-i18n="CLI_D_FIND">Looks for a game on this computer without
+                                changing anything: Steam's own records first, then the usual install
+                                folders on every drive. Returns each location with the executable it
+                                would use. An empty list means it is not here — an answer, not an
+                                error.</p>
+                        </div>
+                    </li>
+                    <li class="step" style="grid-template-columns: 1fr;">
+                        <div class="step__body">
+                            <span class="step__n">add</span>
+                            <p data-i18n="CLI_D_ADD_html">Adds an entry. With <code>--path</code>
+                                left out it searches first and fills the location in when it finds
+                                one. A name already in the library is refused with
+                                <code>ALREADY_THERE</code>.</p>
+                        </div>
+                    </li>
+                    <li class="step" style="grid-template-columns: 1fr;">
+                        <div class="step__body">
+                            <span class="step__n">set</span>
+                            <p data-i18n="CLI_D_SET_html">Changes one field.
+                                <code>parallax fields</code> lists what it accepts and anything else
+                                is refused rather than written. Setting <code>path</code> checks the
+                                location exists and moves the status to match, because a game marked
+                                installed with nowhere to launch from is a claim nothing can act
+                                on.</p>
+                        </div>
+                    </li>
+                    <li class="step" style="grid-template-columns: 1fr;">
+                        <div class="step__body">
+                            <span class="step__n">scan</span>
+                            <p data-i18n="CLI_D_SCAN">Asks Steam what is really installed and
+                                corrects the library, reporting every entry it changed. Worth running
+                                before trusting the installed flag on a library that has been sitting
+                                a while.</p>
+                        </div>
+                    </li>
+                </ol>
+
+                <h2 style="margin-top: 44px;" data-i18n="CLI_NOT_H">What it will not do</h2>
+                <p style="max-width: 62ch;" data-i18n="CLI_NOT_P">
+                    There is no command to delete a game, and none to create, rename or delete an
+                    account. Those are the operations that cannot be taken back, and they are
+                    absent rather than merely discouraged — something that reads a web page and
+                    then decides what to do next should not be holding them. Everything here is
+                    either read-only or a change a person can undo in the window.
+                </p>
+                <p style="max-width: 62ch;" data-i18n="CLI_NOT_P2">
+                    Artwork is not downloaded from here either. That needs API keys and a network
+                    budget, and it belongs to the window.
+                </p>
+
+                <h2 style="margin-top: 44px;" data-i18n="CLI_OPEN_H">While the window is open</h2>
+                <p style="max-width: 62ch;" data-i18n="CLI_OPEN_P">
+                    Both write to the same file, and both are allowed to. Parallax watches its
+                    library for changes it did not make and reloads when one arrives, so an edit
+                    made here shows up in an open window within a second. The one exception is a
+                    game being edited at that moment: the person holding it keeps it, and their
+                    save wins.
+                </p>
+
+                <div class="snippet" style="margin-top: 26px;">
+                    <button class="snippet__copy" type="button" data-copy data-i18n="COPY">Copy</button>
+                    <pre><code>parallax games --sort playtime --json | jq '.games[:5][] | .name'
+parallax launch "hollow knight" --json
+parallax add "Baldur's Gate 3" --json</code></pre>
+                </div>
+
+                <p style="margin-top: 34px; font-size: .86rem; color: var(--star-faint);" data-i18n="CLI_ASK_html">
+                    Something missing, or a shape you would rather it returned?
+                    <a href="https://github.com/ArdaYalinOzkan/parallax-launcher/issues">Open an issue</a>
+                    — it is read.
+                </p>
+            </section>
+        </main>
+
+        <footer class="foot">
+            <div class="wrap foot__in">
+                <div data-i18n="FOOT_BY_html">
+                    Parallax Launcher — created by Arda Yalın Özkan.<br>
+                    Free software under the
+                    <a href="https://github.com/ArdaYalinOzkan/parallax-launcher/blob/main/LICENSE">GNU GPL v3</a>.
+                </div>
+                <div>
+                    <a href="index.html" data-i18n="FOOT_GUIDES">All guides</a> ·
+                    <a href="https://github.com/ArdaYalinOzkan/parallax-launcher" data-i18n="FOOT_SOURCE">Source</a> ·
+                    <a href="https://github.com/ArdaYalinOzkan/parallax-launcher/releases" data-i18n="FOOT_RELEASES">Releases</a>
+                </div>
+            </div>
+        </footer>
+    </div>
+
+    <script src="i18n.js"></script>
+    <script src="site.js"></script>
+    <script src="help.js"></script>
+</body>
+
+</html>

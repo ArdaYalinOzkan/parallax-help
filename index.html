@@ -5,7 +5,7 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Help — Parallax Launcher</title>
-    <meta name="description" content="Guides for Parallax Launcher: installing, updating, and getting past Windows' warnings.">
+    <meta name="description" content="Guides for Parallax Launcher: installing it, the first run, what to do when something goes wrong, and where your library lives.">
     <meta name="theme-color" content="#05060A">
     <link rel="icon" href="favicon.svg" type="image/svg+xml">
     <link rel="alternate icon" href="favicon.ico" sizes="any">
@@ -28,7 +28,7 @@
     <div class="page">
         <header class="top">
             <div class="wrap top__in">
-                <a class="brand" href="https://parallaxlauncher.com/">
+                <a class="brand" href="index.html">
                     <svg viewBox="0 0 100 100" fill="none" aria-hidden="true">
                         <path d="M50.00 15.00 L32.68 25.00 L32.68 45.00 L50.00 55.00 L67.32 45.00 L67.32 25.00 Z" stroke="#EEF1F6" stroke-width="5" />
                         <path d="M32.68 45.00 L15.36 55.00 L15.36 75.00 L32.68 85.00 L50.00 75.00 L50.00 55.00 Z" stroke="#EEF1F6" stroke-width="5" />
@@ -37,7 +37,6 @@
                     <span>Parallax</span>
                 </a>
                 <nav class="top__links">
-                    <a href="https://parallaxlauncher.com/#get" data-i18n="NAV_DOWNLOAD">Download</a>
                     <a href="https://github.com/ArdaYalinOzkan/parallax-launcher" data-i18n="NAV_SOURCE">Source</a>
                     <span class="langpick__slot" data-lang-mount></span>
                 </nav>
@@ -45,52 +44,93 @@
         </header>
 
         <main>
-            <section class="hero wrap" style="padding-block-end: clamp(30px, 5vh, 54px);">
-                <h1 class="rise rise--2" style="max-width: 15ch;" data-i18n="IDX_H1">Installing, and what to expect.</h1>
+            <section class="hero wrap" style="padding-block-end: clamp(26px, 4vh, 44px);">
+                <h1 class="rise rise--2" style="max-width: 14ch;" data-i18n="IDX_H1">Help</h1>
                 <p class="lede rise rise--3" style="max-width: 56ch;" data-i18n="IDX_LEDE">
-                    Short guides for the parts that are not obvious — mostly because an
-                    operating system decided to be careful about a program it has not seen
-                    before.
+                    Guides for installing Parallax, setting it up, and solving the problems
+                    that come up most often.
                 </p>
             </section>
 
-            <section class="wrap" style="padding-block-start: 0;">
+            <section class="wrap group" style="padding-block-start: 0;">
+                <h2 class="group__h" data-i18n="IDX_S1">Getting it running</h2>
                 <div class="guides">
-                    <a class="guide" href="install.html">
-                        <span class="guide__for" data-i18n="IDX_G1_FOR">Getting started</span>
-                        <h3 data-i18n="IDX_G1_H">Downloading and installing</h3>
-                        <p data-i18n="IDX_G1_P">Which file is yours, what to do with it once it lands, and the one
-                            thing Windows will say about it.</p>
+                    <a class="guide" href="setup.html">
+                        <span class="guide__for" data-i18n="IDX_G_SETUP_FOR">All systems</span>
+                        <h3 data-i18n="IDX_G_SETUP_H">Installing it</h3>
+                        <p data-i18n="IDX_G_SETUP_P">You have the file. What to do with it — for Windows, for the
+                            AppImage, and for the .deb, including the repository that keeps it updated.</p>
+                        <span class="guide__go" data-i18n="READ">Read →</span>
+                    </a>
+
+                    <a class="guide" href="first-run.html">
+                        <span class="guide__for" data-i18n="IDX_G_FIRST_FOR">First run</span>
+                        <h3 data-i18n="IDX_G_FIRST_H">The first ten minutes</h3>
+                        <p data-i18n="IDX_G_FIRST_P">Making an account, pulling in your Steam library, adding the games
+                            Steam does not know about, and arranging the shelf.</p>
+                        <span class="guide__go" data-i18n="READ">Read →</span>
+                    </a>
+                </div>
+            </section>
+
+            <section class="wrap group">
+                <h2 class="group__h" data-i18n="IDX_S2">When something is wrong</h2>
+                <div class="guides">
+                    <a class="guide" href="trouble.html">
+                        <span class="guide__for" data-i18n="IDX_G_TROUBLE_FOR">All systems</span>
+                        <h3 data-i18n="IDX_G_TROUBLE_H">When something does not work</h3>
+                        <p data-i18n="IDX_G_TROUBLE_P">It will not open, a game will not start, the artwork never
+                            arrives, a game insists it is installed when it is not.</p>
                         <span class="guide__go" data-i18n="READ">Read →</span>
                     </a>
 
                     <a class="guide" href="windows.html">
-                        <span class="guide__for" data-i18n="IDX_G2_FOR">Windows</span>
-                        <h3 data-i18n="IDX_G2_H">Getting past Windows' warnings</h3>
-                        <p data-i18n="IDX_G2_P">SmartScreen and Smart App Control both stop the installer, and they
-                            look nothing alike. What each one is, and what to do.</p>
+                        <span class="guide__for" data-i18n="IDX_G_WIN_FOR">Windows</span>
+                        <h3 data-i18n="IDX_G_WIN_H">Installing on Windows</h3>
+                        <p data-i18n="IDX_G_WIN_P">It installs without a fuss now. Why that changed, what to do in
+                            the rare case it does not, and how to check the file yourself.</p>
+                        <span class="guide__go" data-i18n="READ">Read →</span>
+                    </a>
+                </div>
+            </section>
+
+            <section class="wrap group">
+                <h2 class="group__h" data-i18n="IDX_S3">How it works</h2>
+                <div class="guides">
+                    <a class="guide" href="updating.html">
+                        <span class="guide__for" data-i18n="IDX_G_UPD_FOR">All systems</span>
+                        <h3 data-i18n="IDX_G_UPD_H">How updates reach you</h3>
+                        <p data-i18n="IDX_G_UPD_P">Three ways to install mean three ways updates arrive. Which one you
+                            have, and how to hand the job to your system instead.</p>
                         <span class="guide__go" data-i18n="READ">Read →</span>
                     </a>
 
-                    <a class="guide" href="updating.html">
-                        <span class="guide__for" data-i18n="IDX_G3_FOR">All systems</span>
-                        <h3 data-i18n="IDX_G3_H">How updates reach you</h3>
-                        <p data-i18n="IDX_G3_P">Three ways to install and three ways updates arrive. Which one you
-                            have, and how to make your system handle it instead.</p>
+                    <a class="guide" href="data.html">
+                        <span class="guide__for" data-i18n="IDX_G_DATA_FOR">Your files</span>
+                        <h3 data-i18n="IDX_G_DATA_H">Where your library lives</h3>
+                        <p data-i18n="IDX_G_DATA_P">One folder, and a text file you can read. Backing it up, moving it
+                            to another machine, and removing every trace.</p>
                         <span class="guide__go" data-i18n="READ">Read →</span>
                     </a>
 
                     <a class="guide" href="keys.html">
-                        <span class="guide__for" data-i18n="IDX_G4_FOR">Settings</span>
-                        <h3 data-i18n="IDX_G4_H">API keys, and when you need one</h3>
-                        <p data-i18n="IDX_G4_P">Most of the app needs none. Two things do. What they unlock, and how
-                            to get your own in a minute.</p>
+                        <span class="guide__for" data-i18n="IDX_G_KEYS_FOR">Settings</span>
+                        <h3 data-i18n="IDX_G_KEYS_H">API keys, and when you need one</h3>
+                        <p data-i18n="IDX_G_KEYS_P">Most of the app needs none. One thing does. What it unlocks, and
+                            how to get your own in a minute.</p>
+                        <span class="guide__go" data-i18n="READ">Read →</span>
+                    </a>
+
+                    <a class="guide" href="agents.html">
+                        <span class="guide__for" data-i18n="IDX_G_CLI_FOR">Automation</span>
+                        <h3 data-i18n="IDX_G_CLI_H">Parallax from a command line</h3>
+                        <p data-i18n="IDX_G_CLI_P">Read a library, start a game, add an entry — from a script, or from
+                            an assistant asked to put something on.</p>
                         <span class="guide__go" data-i18n="READ">Read →</span>
                     </a>
                 </div>
 
-                <p style="margin-top: 34px; font-size: .86rem; color: var(--star-faint);"
-                    data-i18n="IDX_ASK_html">
+                <p style="margin-top: 34px; font-size: .86rem; color: var(--star-faint);" data-i18n="IDX_ASK_html">
                     Something not covered here?
                     <a href="https://github.com/ArdaYalinOzkan/parallax-launcher/issues">Open an issue</a>
                     — it is read.
@@ -106,7 +146,6 @@
                     <a href="https://github.com/ArdaYalinOzkan/parallax-launcher/blob/main/LICENSE">GNU GPL v3</a>.
                 </div>
                 <div>
-                    <a href="https://parallaxlauncher.com/" data-i18n="FOOT_HOME">Home</a> ·
                     <a href="https://github.com/ArdaYalinOzkan/parallax-launcher" data-i18n="FOOT_SOURCE">Source</a> ·
                     <a href="https://github.com/ArdaYalinOzkan/parallax-launcher/releases" data-i18n="FOOT_RELEASES">Releases</a>
                 </div>
@@ -116,6 +155,7 @@
 
     <script src="i18n.js"></script>
     <script src="site.js"></script>
+    <script src="help.js"></script>
 </body>
 
 </html>

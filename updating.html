@@ -5,7 +5,7 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>How updates reach you — Parallax Launcher</title>
-    <meta name="description" content="Three ways to install Parallax Launcher and how updates arrive in each.">
+    <meta name="description" content="Three ways to install mean three ways updates arrive. Which one you have, and how to hand the job to your system instead.">
     <meta name="theme-color" content="#05060A">
     <link rel="icon" href="favicon.svg" type="image/svg+xml">
     <link rel="alternate icon" href="favicon.ico" sizes="any">
@@ -28,7 +28,7 @@
     <div class="page">
         <header class="top">
             <div class="wrap top__in">
-                <a class="brand" href="./">
+                <a class="brand" href="index.html">
                     <svg viewBox="0 0 100 100" fill="none" aria-hidden="true">
                         <path d="M50.00 15.00 L32.68 25.00 L32.68 45.00 L50.00 55.00 L67.32 45.00 L67.32 25.00 Z" stroke="#EEF1F6" stroke-width="5" />
                         <path d="M32.68 45.00 L15.36 55.00 L15.36 75.00 L32.68 85.00 L50.00 75.00 L50.00 55.00 Z" stroke="#EEF1F6" stroke-width="5" />
@@ -37,79 +37,79 @@
                     <span>Parallax</span>
                 </a>
                 <nav class="top__links">
-                    <a href="./" data-i18n="NAV_GUIDES">All guides</a>
-                    <a href="https://parallaxlauncher.com/#get" data-i18n="NAV_DOWNLOAD">Download</a>
+                    <a href="index.html" data-i18n="NAV_GUIDES">All guides</a>
+                    <a href="https://github.com/ArdaYalinOzkan/parallax-launcher" data-i18n="NAV_SOURCE">Source</a>
                     <span class="langpick__slot" data-lang-mount></span>
                 </nav>
             </div>
         </header>
 
         <main>
-            <section class="hero wrap" style="padding-block-end: clamp(30px, 5vh, 54px);">
-                <span class="label rise rise--1" data-i18n="UPD_LBL">All systems</span>
+            <section class="hero wrap" style="padding-block-end: clamp(20px, 3vh, 32px);">
+                <p class="label rise rise--1" data-i18n="UPD_KICKER">Updates</p>
                 <h1 class="rise rise--2" style="max-width: 16ch;" data-i18n="UPD_H1">How updates reach you.</h1>
                 <p class="lede rise rise--3" style="max-width: 58ch;" data-i18n="UPD_LEDE">
-                    Three ways to install, and updates arrive differently in each. You do not
-                    have to choose — you already did, when you picked a file.
+                    How updates reach you depends on how Parallax was installed. Each method is
+                    described below.
                 </p>
             </section>
 
             <section class="wrap" style="padding-block-start: 0;">
+
                 <div class="grid">
                     <div class="cell">
-                        <span class="cell__num">.AppImage</span>
+                        <span class="chip">.AppImage</span>
                         <h3 data-i18n="UPD_C1_H">The app fetches it</h3>
-                        <p data-i18n="UPD_C1_P">One file, so it can replace itself. It checks once a day, tells you
-                            when there is something newer, and downloads only after you press
-                            the button. Nothing arrives unasked.</p>
+                        <p data-i18n="UPD_C1_P">One file, so it can replace itself. It looks once a day, says when
+                            there is something newer, and downloads only after you press the button. Nothing arrives
+                            unasked.</p>
                     </div>
                     <div class="cell">
-                        <span class="cell__num">.exe</span>
+                        <span class="chip">.exe</span>
                         <h3 data-i18n="UPD_C2_H">The app fetches it</h3>
-                        <p data-i18n="UPD_C2_P">Same as above, and it downloads only the parts that changed rather
-                            than the whole installer. Because it installs per user, no
-                            administrator password is needed to update.</p>
+                        <p data-i18n="UPD_C2_P">The same, and it downloads only the parts that changed rather than the
+                            whole installer. Because it installs for your account alone, updating needs no administrator
+                            password.</p>
                     </div>
                     <div class="cell">
-                        <span class="cell__num">.deb</span>
+                        <span class="chip">.deb</span>
                         <h3 data-i18n="UPD_C3_H">Either, your choice</h3>
                         <p data-i18n="UPD_C3_P_html">On its own it updates itself through <code>dpkg</code>, which asks
-                            for your password the way any install does. Add the repository and
-                            your system takes over instead — see below.</p>
+                            for your password the way any install does. Add the repository and your system takes over
+                            instead.</p>
                     </div>
                 </div>
-            </section>
 
-            <section class="wrap">
-                <span class="label" data-i18n="UPD_APT_LBL">Debian and Ubuntu</span>
-                <h2 data-i18n="UPD_APT_H2">Letting apt do it instead.</h2>
-                <p class="lede" data-i18n="UPD_APT_LEDE">
-                    Add the package repository once and Parallax joins your normal updates. One
-                    button in the software centre brings it up to date along with everything
-                    else, and the app stops asking.
+                <h2 style="margin-top: 48px;" data-i18n="UPD_APT_H">Letting apt do it instead</h2>
+                <p style="max-width: 62ch;" data-i18n="UPD_APT_P_html">
+                    Add the package repository once and Parallax joins your ordinary updates —
+                    one command, or one button in your software centre, brings it up to date along
+                    with everything else. <a href="setup.html#d-deb">The three lines are here</a>.
                 </p>
-                <p style="font-size: .88rem; color: var(--star-dim);" data-i18n="UPD_APT_NOTE">
-                    The app notices when you have done this and steps back — two updaters
-                    chasing the same package would offer you the same version twice.
+                <p class="note" style="max-width: 62ch;" data-i18n="UPD_APT_NOTE">
+                    The app notices when you have done this and steps back. Two updaters chasing the
+                    same package would offer you the same version twice, and one of them would be
+                    wrong about how to install it.
                 </p>
-                <p style="margin-top: 22px;">
-                    <a class="btn btn--primary"
-                        href="https://github.com/ArdaYalinOzkan/parallax-apt" data-i18n="UPD_APT_BTN">The commands, on GitHub</a>
-                </p>
-            </section>
 
-            <section class="wrap">
-                <span class="label" data-i18n="UPD_OFF_LBL">If you would rather not</span>
-                <h2 data-i18n="UPD_OFF_H2">Turning the checking off.</h2>
-                <p class="lede" data-i18n="UPD_OFF_LEDE_html">
-                    Settings → About → <em style="font-style: normal; color: var(--star-hi);">Check
-                    automatically</em>. With it off, nothing contacts GitHub unless you press the
-                    button yourself.
+                <h2 style="margin-top: 44px;" data-i18n="UPD_VERIFY_H">Knowing an update is really ours</h2>
+                <p style="max-width: 62ch;" data-i18n="UPD_VERIFY_P_html">
+                    Every released file carries a signed statement naming the commit and the
+                    workflow that built it, so a download can be traced back to the source it came
+                    from rather than taken on trust. From the repository, apt checks a signature
+                    before it will install anything, and refuses if it does not match.
+                    <a href="windows.html#verify">How to check a file yourself</a>.
                 </p>
-                <p style="font-size: .88rem; color: var(--star-dim); max-width: 62ch;" data-i18n="UPD_OFF_NOTE">
+
+                <h2 style="margin-top: 44px;" data-i18n="UPD_OFF_H">If you would rather it did not ask</h2>
+                <p style="max-width: 62ch;" data-i18n="UPD_OFF_P_html">
+                    <em>Settings → About → Check automatically</em>. With it off, nothing contacts
+                    GitHub unless you press the button yourself.
+                </p>
+                <p class="note" style="max-width: 62ch;" data-i18n="UPD_OFF_NOTE">
                     An update check is a request to a server, which means an IP address and a
-                    version number leave your machine. That is worth being able to decline, so
-                    you can.
+                    version number leave your machine. That is worth being able to decline, so you
+                    can.
                 </p>
             </section>
         </main>
@@ -122,9 +122,9 @@
                     <a href="https://github.com/ArdaYalinOzkan/parallax-launcher/blob/main/LICENSE">GNU GPL v3</a>.
                 </div>
                 <div>
-                    <a href="./" data-i18n="FOOT_GUIDES">All guides</a> ·
-                    <a href="https://parallaxlauncher.com/" data-i18n="FOOT_HOME">Home</a> ·
-                    <a href="https://github.com/ArdaYalinOzkan/parallax-launcher" data-i18n="FOOT_SOURCE">Source</a>
+                    <a href="index.html" data-i18n="FOOT_GUIDES">All guides</a> ·
+                    <a href="https://github.com/ArdaYalinOzkan/parallax-launcher" data-i18n="FOOT_SOURCE">Source</a> ·
+                    <a href="https://github.com/ArdaYalinOzkan/parallax-launcher/releases" data-i18n="FOOT_RELEASES">Releases</a>
                 </div>
             </div>
         </footer>
@@ -132,6 +132,7 @@
 
     <script src="i18n.js"></script>
     <script src="site.js"></script>
+    <script src="help.js"></script>
 </body>
 
 </html>

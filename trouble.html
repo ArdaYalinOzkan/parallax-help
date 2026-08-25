@@ -1,0 +1,234 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>When something does not work — Parallax Launcher</title>
+    <meta name="description" content="It will not open, a game will not start, the artwork never arrives, a game insists it is installed when it is not.">
+    <meta name="theme-color" content="#05060A">
+    <link rel="icon" href="favicon.svg" type="image/svg+xml">
+    <link rel="alternate icon" href="favicon.ico" sizes="any">
+    <link rel="apple-touch-icon" href="apple-touch-icon.png" sizes="180x180">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="stylesheet"
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap">
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <div class="sky" aria-hidden="true">
+        <div class="sky__layer sky__haze"></div>
+        <div class="sky__layer" id="skyFar"></div>
+        <div class="sky__layer" id="skyNear"></div>
+        <div class="sky__grain" id="skyGrain"></div>
+    </div>
+
+    <div class="page">
+        <header class="top">
+            <div class="wrap top__in">
+                <a class="brand" href="index.html">
+                    <svg viewBox="0 0 100 100" fill="none" aria-hidden="true">
+                        <path d="M50.00 15.00 L32.68 25.00 L32.68 45.00 L50.00 55.00 L67.32 45.00 L67.32 25.00 Z" stroke="#EEF1F6" stroke-width="5" />
+                        <path d="M32.68 45.00 L15.36 55.00 L15.36 75.00 L32.68 85.00 L50.00 75.00 L50.00 55.00 Z" stroke="#EEF1F6" stroke-width="5" />
+                        <path d="M67.32 45.00 L50.00 55.00 L50.00 75.00 L67.32 85.00 L84.64 75.00 L84.64 55.00 Z" stroke="#EEF1F6" stroke-width="5" />
+                    </svg>
+                    <span>Parallax</span>
+                </a>
+                <nav class="top__links">
+                    <a href="index.html" data-i18n="NAV_GUIDES">All guides</a>
+                    <a href="https://github.com/ArdaYalinOzkan/parallax-launcher" data-i18n="NAV_SOURCE">Source</a>
+                    <span class="langpick__slot" data-lang-mount></span>
+                </nav>
+            </div>
+        </header>
+
+        <main>
+            <section class="hero wrap" style="padding-block-end: clamp(20px, 3vh, 32px);">
+                <p class="label rise rise--1" data-i18n="TRB_KICKER">Troubleshooting</p>
+                <h1 class="rise rise--2" style="max-width: 17ch;" data-i18n="TRB_H1">When something does not work.</h1>
+                <p class="lede rise rise--3" style="max-width: 58ch;" data-i18n="TRB_LEDE">
+                    The most common problems and what causes them. Open the section that matches
+                    your situation.
+                </p>
+            </section>
+
+            <section class="wrap" style="padding-block-start: 0;">
+
+                <div class="drawers">
+                    <details class="drawer" name="trouble" id="t-nostart">
+                        <summary>
+                            <span class="drawer__title" data-i18n="TRB_A_T">It will not open at all</span>
+                            <span class="drawer__hint" data-i18n="TRB_A_HINT">Linux, AppImage</span>
+                        </summary>
+                        <div class="drawer__body">
+                            <p data-i18n="TRB_A_P1">Almost always one of two things, and they look identical from
+                                outside: nothing happens when you click.</p>
+                            <p data-i18n="TRB_A_P2_html">First, the file may not be allowed to run. A downloaded file is
+                                not executable until you say so — see <a href="setup.html#d-appimage">the AppImage
+                                    steps</a>.</p>
+                            <p data-i18n="TRB_A_P3">Second, your menu entry may point at a file that is no longer there.
+                                An AppImage whose filename carries a version number gets a new name every update, and the
+                                menu keeps pointing at the old one. Removing the stale entry and starting the new file once
+                                fixes it for good:</p>
+                            <div class="snippet">
+                                <button class="snippet__copy" type="button" data-copy data-i18n="COPY">Copy</button>
+                                <pre><code>rm ~/.local/share/applications/parallax-launcher.desktop</code></pre>
+                            </div>
+                            <p data-i18n="TRB_A_P4">Then run the AppImage directly; it puts a correct entry back. Newer
+                                releases are named without a version for exactly this reason.</p>
+                            <p data-i18n="TRB_A_P5_html">If it still does nothing, run it from a terminal — it will say
+                                why, and that message is worth putting in an
+                                <a href="https://github.com/ArdaYalinOzkan/parallax-launcher/issues">issue</a>.</p>
+                        </div>
+                    </details>
+
+                    <details class="drawer" name="trouble" id="t-installed">
+                        <summary>
+                            <span class="drawer__title" data-i18n="TRB_B_T">A game says it is installed, but it is not</span>
+                            <span class="drawer__hint" data-i18n="TRB_B_HINT">Steam games</span>
+                        </summary>
+                        <div class="drawer__body">
+                            <p data-i18n="TRB_B_P1">Uninstalling through Steam removes its record of the game but often
+                                leaves the folder behind — empty, or with a settings file in it. Anything that judges by
+                                the folder is fooled, and Parallax used to be.</p>
+                            <p data-i18n="TRB_B_P2_html">It now asks Steam rather than the disk. Use
+                                <strong>Refresh library</strong> and the wrong ones correct themselves. The reverse works
+                                too: a game you installed while Parallax was closed is found again.</p>
+                            <p data-i18n="TRB_B_P3">A game with an update waiting still counts as installed, which is
+                                the honest answer — it is on your disk and it will start.</p>
+                        </div>
+                    </details>
+
+                    <details class="drawer" name="trouble" id="t-launch">
+                        <summary>
+                            <span class="drawer__title" data-i18n="TRB_C_T">A game will not start</span>
+                            <span class="drawer__hint" data-i18n="TRB_C_HINT">All systems</span>
+                        </summary>
+                        <div class="drawer__body">
+                            <p data-i18n="TRB_C_P1_html">If it is a Steam game, Parallax hands it to Steam and Steam does
+                                the rest — so if it fails, it usually fails in Steam, and Steam says why. Try starting it
+                                there once.</p>
+                            <p data-i18n="TRB_C_P2_html">If it is a game you added yourself, the location may point at the
+                                wrong file. A folder full of executables is a guess, and Parallax picks the most likely
+                                one; open <strong>Edit</strong> and point it at the right binary if it chose badly.</p>
+                            <p data-i18n="TRB_C_P3_html">On Linux, a Windows game needs Proton or Wine.
+                                <strong>Properties</strong> shows which one is in use and lets you change it. If no Proton
+                                build is installed, Steam installs one the first time you run any Windows game through
+                                it.</p>
+                        </div>
+                    </details>
+
+                    <details class="drawer" name="trouble" id="t-artwork">
+                        <summary>
+                            <span class="drawer__title" data-i18n="TRB_D_T">The artwork never arrives</span>
+                            <span class="drawer__hint" data-i18n="TRB_D_HINT">Covers and banners</span>
+                        </summary>
+                        <div class="drawer__body">
+                            <p data-i18n="TRB_D_P1_html">Steam's own art covers Steam games and needs nothing from you.
+                                Everything else — games from other shops, older titles, anything Steam never sold — comes
+                                from a community library that asks for a free key.
+                                <a href="keys.html">Getting one takes about a minute</a>.</p>
+                            <p data-i18n="TRB_D_P2">A whole library at once takes a while, and images arrive as they are
+                                found rather than all together. If a game keeps its placeholder after everything else has
+                                filled in, its name is probably the problem: art is looked up by name, and a name with an
+                                edition or a subtitle attached often matches nothing.</p>
+                            <p data-i18n="TRB_D_P3_html">Rename it to the plain title, or set the image yourself from
+                                <strong>Edit</strong> — a file from your disk is accepted, and it is never overwritten
+                                afterwards.</p>
+                        </div>
+                    </details>
+
+                    <details class="drawer" name="trouble" id="t-import">
+                        <summary>
+                            <span class="drawer__title" data-i18n="TRB_E_T">Importing from Steam finds nothing</span>
+                            <span class="drawer__hint" data-i18n="TRB_E_HINT">Steam import</span>
+                        </summary>
+                        <div class="drawer__body">
+                            <p data-i18n="TRB_E_P1">Steam hides game lists by default. A private profile answers the
+                                request politely and says nothing, which is indistinguishable from owning no games.</p>
+                            <p data-i18n="TRB_E_P2_html">In Steam: <em>Profile → Edit Profile → Privacy Settings</em>, and
+                                set <strong>Game details</strong> to Public. You can set it back afterwards — the import
+                                only needs to succeed once.</p>
+                        </div>
+                    </details>
+
+                    <details class="drawer" name="trouble" id="t-install-btn">
+                        <summary>
+                            <span class="drawer__title" data-i18n="TRB_F_T">Install does nothing, or Steam refuses</span>
+                            <span class="drawer__hint" data-i18n="TRB_F_HINT">Family sharing</span>
+                        </summary>
+                        <div class="drawer__body">
+                            <p data-i18n="TRB_F_P1">Steam will only install a game the signed-in account owns. A game
+                                shared with you through a family, or one you own somewhere else entirely, cannot be
+                                fetched that way — Steam is asked for something it has no record of you having, and
+                                nothing happens.</p>
+                            <p data-i18n="TRB_F_P2_html">The button looks on your own disk first now, and finds the game
+                                if it is there. When it is not, it offers both roads: let Steam download it, or point at
+                                the copy you already have.</p>
+                        </div>
+                    </details>
+
+                    <details class="drawer" name="trouble" id="t-slow">
+                        <summary>
+                            <span class="drawer__title" data-i18n="TRB_G_T">It is slow, or the window stutters</span>
+                            <span class="drawer__hint" data-i18n="TRB_G_HINT">Large libraries</span>
+                        </summary>
+                        <div class="drawer__body">
+                            <p data-i18n="TRB_G_P1">The loading screen is doing real work: covers are decoded and
+                                banners fetched before the shelf appears, so that scrolling it afterwards is smooth. A
+                                library of a few hundred games takes a couple of seconds the first time and less
+                                afterwards.</p>
+                            <p data-i18n="TRB_G_P2">If the window itself stutters while you scroll, it is worth checking
+                                that your machine is using its graphics card rather than falling back to software
+                                rendering — that shows up as everything being slow, not only Parallax.</p>
+                        </div>
+                    </details>
+
+                    <details class="drawer" name="trouble" id="t-lost">
+                        <summary>
+                            <span class="drawer__title" data-i18n="TRB_H_T">Something has gone, and I want it back</span>
+                            <span class="drawer__hint" data-i18n="TRB_H_HINT">Accounts and libraries</span>
+                        </summary>
+                        <div class="drawer__body">
+                            <p data-i18n="TRB_H_P1_html">A deleted account is not deleted immediately — it waits, and can
+                                be restored from the account screen. Your library is a plain text file you can also copy
+                                yourself; <a href="data.html">where it lives, and how to back it up</a>.</p>
+                            <p data-i18n="TRB_H_P2">Uninstalling Parallax never touches that folder. Reinstalling picks
+                                up exactly where you left off, which is also why removing the program does not remove your
+                                library unless you delete the folder yourself.</p>
+                        </div>
+                    </details>
+                </div>
+
+                <p style="margin-top: 34px; font-size: .86rem; color: var(--star-faint);" data-i18n="TRB_ASK_html">
+                    Not here?
+                    <a href="https://github.com/ArdaYalinOzkan/parallax-launcher/issues">Open an issue</a>
+                    — say what you did and what happened, and it gets looked at.
+                </p>
+            </section>
+        </main>
+
+        <footer class="foot">
+            <div class="wrap foot__in">
+                <div data-i18n="FOOT_BY_html">
+                    Parallax Launcher — created by Arda Yalın Özkan.<br>
+                    Free software under the
+                    <a href="https://github.com/ArdaYalinOzkan/parallax-launcher/blob/main/LICENSE">GNU GPL v3</a>.
+                </div>
+                <div>
+                    <a href="index.html" data-i18n="FOOT_GUIDES">All guides</a> ·
+                    <a href="https://github.com/ArdaYalinOzkan/parallax-launcher" data-i18n="FOOT_SOURCE">Source</a> ·
+                    <a href="https://github.com/ArdaYalinOzkan/parallax-launcher/releases" data-i18n="FOOT_RELEASES">Releases</a>
+                </div>
+            </div>
+        </footer>
+    </div>
+
+    <script src="i18n.js"></script>
+    <script src="site.js"></script>
+    <script src="help.js"></script>
+</body>
+
+</html>

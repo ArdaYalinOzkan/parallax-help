@@ -1,0 +1,152 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>The first ten minutes — Parallax Launcher</title>
+    <meta name="description" content="Making an account, importing your Steam library, adding games by hand, and arranging the shelf.">
+    <meta name="theme-color" content="#05060A">
+    <link rel="icon" href="favicon.svg" type="image/svg+xml">
+    <link rel="alternate icon" href="favicon.ico" sizes="any">
+    <link rel="apple-touch-icon" href="apple-touch-icon.png" sizes="180x180">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="stylesheet"
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap">
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <div class="sky" aria-hidden="true">
+        <div class="sky__layer sky__haze"></div>
+        <div class="sky__layer" id="skyFar"></div>
+        <div class="sky__layer" id="skyNear"></div>
+        <div class="sky__grain" id="skyGrain"></div>
+    </div>
+
+    <div class="page">
+        <header class="top">
+            <div class="wrap top__in">
+                <a class="brand" href="index.html">
+                    <svg viewBox="0 0 100 100" fill="none" aria-hidden="true">
+                        <path d="M50.00 15.00 L32.68 25.00 L32.68 45.00 L50.00 55.00 L67.32 45.00 L67.32 25.00 Z" stroke="#EEF1F6" stroke-width="5" />
+                        <path d="M32.68 45.00 L15.36 55.00 L15.36 75.00 L32.68 85.00 L50.00 75.00 L50.00 55.00 Z" stroke="#EEF1F6" stroke-width="5" />
+                        <path d="M67.32 45.00 L50.00 55.00 L50.00 75.00 L67.32 85.00 L84.64 75.00 L84.64 55.00 Z" stroke="#EEF1F6" stroke-width="5" />
+                    </svg>
+                    <span>Parallax</span>
+                </a>
+                <nav class="top__links">
+                    <a href="index.html" data-i18n="NAV_GUIDES">All guides</a>
+                    <a href="https://github.com/ArdaYalinOzkan/parallax-launcher" data-i18n="NAV_SOURCE">Source</a>
+                    <span class="langpick__slot" data-lang-mount></span>
+                </nav>
+            </div>
+        </header>
+
+        <main>
+            <section class="hero wrap" style="padding-block-end: clamp(20px, 3vh, 32px);">
+                <p class="label rise rise--1" data-i18n="FR_KICKER">First run</p>
+                <h1 class="rise rise--2" style="max-width: 16ch;" data-i18n="FR_H1">The first ten minutes.</h1>
+                <p class="lede rise rise--3" style="max-width: 58ch;" data-i18n="FR_LEDE">
+                    What to do when you open Parallax for the first time: create an account,
+                    import your library, add games and arrange them.
+                </p>
+            </section>
+
+            <section class="wrap" style="padding-block-start: 0;">
+
+                <ol class="steps">
+                    <li class="step" style="grid-template-columns: 1fr;">
+                        <div class="step__body">
+                            <span class="step__n">1</span>
+                            <h3 data-i18n="FR_1_H">Make an account</h3>
+                            <p data-i18n="FR_1_P">Not an account with anyone — a name for this library, kept on this
+                                machine. Nothing is sent anywhere and there is no password unless you set one. Two people
+                                sharing a computer can have a shelf each; most people make one and never think about it
+                                again.</p>
+                        </div>
+                    </li>
+
+                    <li class="step" style="grid-template-columns: 1fr;">
+                        <div class="step__body">
+                            <span class="step__n">2</span>
+                            <h3 data-i18n="FR_2_H">Bring in your Steam games</h3>
+                            <p data-i18n="FR_2_P_html">Paste your Steam profile link, or just your Steam name, and
+                                Parallax fetches everything you own. It needs your profile to be public — Steam hides game
+                                lists by default, and a private one comes back empty rather than with an error worth
+                                reading.</p>
+                            <p data-i18n="FR_2_P2">Cover art and banners are fetched at the same time. A large library
+                                takes a few minutes; you can use the app while it works.</p>
+                        </div>
+                    </li>
+
+                    <li class="step" style="grid-template-columns: 1fr;">
+                        <div class="step__body">
+                            <span class="step__n">3</span>
+                            <h3 data-i18n="FR_3_H">Add what Steam does not know about</h3>
+                            <p data-i18n="FR_3_P">Games from Epic, GOG, the Xbox app, an emulator, or something you
+                                compiled yourself. Type the name and Parallax looks for it on your disk — Steam's own
+                                records first, then the folders games are usually kept in, on every drive.</p>
+                            <p data-i18n="FR_3_P2">If it finds it, the location is filled in for you. If it does not, it
+                                asks you to point at the file rather than guessing.</p>
+                        </div>
+                    </li>
+
+                    <li class="step" style="grid-template-columns: 1fr;">
+                        <div class="step__body">
+                            <span class="step__n">4</span>
+                            <h3 data-i18n="FR_4_H">Arrange the shelf</h3>
+                            <p data-i18n="FR_4_P_html">Sort by name, by hours played, or by the colour of the cover art —
+                                which sounds like a novelty until you have two hundred games and find you remember what a
+                                game looks like long before you remember what it is called.</p>
+                            <p data-i18n="FR_4_P2">Filters narrow it to what is installed, or to one platform. The
+                                setting sticks, so the shelf looks the way you left it.</p>
+                        </div>
+                    </li>
+                </ol>
+
+                <h2 style="margin-top: 44px;" data-i18n="FR_PLAY_H">Then press Play</h2>
+                <p style="max-width: 62ch;" data-i18n="FR_PLAY_P">
+                    A Steam game is started through Steam, which handles Proton, cloud saves and
+                    the overlay. Anything else Parallax runs itself, on Linux through Proton or
+                    Wine when the game is a Windows one. Hours are counted either way, and a game
+                    you have not installed offers to find or fetch it rather than doing nothing.
+                </p>
+
+                <p class="note" style="max-width: 62ch;" data-i18n="FR_PROPS_P_html">
+                    Every game has a <strong>Properties</strong> panel for the things that decide
+                    how it starts — which Proton build, launch options, environment variables.
+                    Untouched, it picks sensible defaults; it is there for the one game a year that
+                    needs something unusual.
+                </p>
+
+                <p style="margin-top: 34px; font-size: .86rem; color: var(--star-faint);" data-i18n="FR_NEXT_html">
+                    Something not behaving? <a href="trouble.html">The troubleshooting guide</a> covers what goes wrong
+                    most often.
+                </p>
+            </section>
+        </main>
+
+        <footer class="foot">
+            <div class="wrap foot__in">
+                <div data-i18n="FOOT_BY_html">
+                    Parallax Launcher — created by Arda Yalın Özkan.<br>
+                    Free software under the
+                    <a href="https://github.com/ArdaYalinOzkan/parallax-launcher/blob/main/LICENSE">GNU GPL v3</a>.
+                </div>
+                <div>
+                    <a href="index.html" data-i18n="FOOT_GUIDES">All guides</a> ·
+                    <a href="https://github.com/ArdaYalinOzkan/parallax-launcher" data-i18n="FOOT_SOURCE">Source</a> ·
+                    <a href="https://github.com/ArdaYalinOzkan/parallax-launcher/releases" data-i18n="FOOT_RELEASES">Releases</a>
+                </div>
+            </div>
+        </footer>
+    </div>
+
+    <script src="i18n.js"></script>
+    <script src="site.js"></script>
+    <script src="help.js"></script>
+</body>
+
+</html>

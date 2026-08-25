@@ -1,0 +1,182 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Where your library lives — Parallax Launcher</title>
+    <meta name="description" content="One folder, and a text file you can read. Backing it up, moving it to another machine, and removing every trace.">
+    <meta name="theme-color" content="#05060A">
+    <link rel="icon" href="favicon.svg" type="image/svg+xml">
+    <link rel="alternate icon" href="favicon.ico" sizes="any">
+    <link rel="apple-touch-icon" href="apple-touch-icon.png" sizes="180x180">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="stylesheet"
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap">
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <div class="sky" aria-hidden="true">
+        <div class="sky__layer sky__haze"></div>
+        <div class="sky__layer" id="skyFar"></div>
+        <div class="sky__layer" id="skyNear"></div>
+        <div class="sky__grain" id="skyGrain"></div>
+    </div>
+
+    <div class="page">
+        <header class="top">
+            <div class="wrap top__in">
+                <a class="brand" href="index.html">
+                    <svg viewBox="0 0 100 100" fill="none" aria-hidden="true">
+                        <path d="M50.00 15.00 L32.68 25.00 L32.68 45.00 L50.00 55.00 L67.32 45.00 L67.32 25.00 Z" stroke="#EEF1F6" stroke-width="5" />
+                        <path d="M32.68 45.00 L15.36 55.00 L15.36 75.00 L32.68 85.00 L50.00 75.00 L50.00 55.00 Z" stroke="#EEF1F6" stroke-width="5" />
+                        <path d="M67.32 45.00 L50.00 55.00 L50.00 75.00 L67.32 85.00 L84.64 75.00 L84.64 55.00 Z" stroke="#EEF1F6" stroke-width="5" />
+                    </svg>
+                    <span>Parallax</span>
+                </a>
+                <nav class="top__links">
+                    <a href="index.html" data-i18n="NAV_GUIDES">All guides</a>
+                    <a href="https://github.com/ArdaYalinOzkan/parallax-launcher" data-i18n="NAV_SOURCE">Source</a>
+                    <span class="langpick__slot" data-lang-mount></span>
+                </nav>
+            </div>
+        </header>
+
+        <main>
+            <section class="hero wrap" style="padding-block-end: clamp(20px, 3vh, 32px);">
+                <p class="label rise rise--1" data-i18n="DAT_KICKER">Your files</p>
+                <h1 class="rise rise--2" style="max-width: 16ch;" data-i18n="DAT_H1">Where your library lives.</h1>
+                <p class="lede rise rise--3" style="max-width: 58ch;" data-i18n="DAT_LEDE">
+                    Your library is stored on your own computer, in a single folder, as a plain
+                    text file. Nothing is uploaded and there is no account to register.
+                </p>
+            </section>
+
+            <section class="wrap" style="padding-block-start: 0;">
+
+                <h2 data-i18n="DAT_WHERE_H">The folder</h2>
+                <div class="repo" style="margin-top: 18px;">
+                    <div class="repo__head">
+                        <span class="label" style="margin: 0;" data-i18n="DAT_LNX">Linux</span>
+                        <button class="copy" data-copy>Copy</button>
+                    </div>
+<pre><code>~/.config/parallax-launcher/</code></pre>
+                </div>
+                <div class="repo" style="margin-top: 14px;">
+                    <div class="repo__head">
+                        <span class="label" style="margin: 0;" data-i18n="DAT_WIN">Windows</span>
+                        <button class="copy" data-copy>Copy</button>
+                    </div>
+<pre><code>%APPDATA%\parallax-launcher\</code></pre>
+                </div>
+
+                <p style="max-width: 62ch; margin-top: 22px;" data-i18n="DAT_INSIDE_P_html">
+                    Most of what is in there belongs to the browser engine the app is built on —
+                    caches it will rebuild if you delete them. Three things are yours:
+                </p>
+
+                <ul class="plain" style="max-width: 62ch;">
+                    <li data-i18n="DAT_L1_html"><code>Parallax_Accounts/</code> — one folder per library, holding
+                        <code>Library.txt</code> and the artwork you have imported.</li>
+                    <li data-i18n="DAT_L2_html"><code>app_settings.json</code> — your language, sort order and the rest
+                        of the settings screen.</li>
+                    <li data-i18n="DAT_L3_html"><code>api_keys.json</code> — the key from the
+                        <a href="keys.html">artwork service</a>, if you added one.</li>
+                </ul>
+
+                <h2 style="margin-top: 44px;" data-i18n="DAT_FILE_H">The library itself</h2>
+                <p style="max-width: 62ch;" data-i18n="DAT_FILE_P">
+                    <code>Library.txt</code> is exactly that — a text file, one block per game,
+                    plain enough to read and repair by hand. It was not a decision taken lightly:
+                    a database would be tidier, and useless to somebody trying to work out what
+                    happened to their library ten years from now.
+                </p>
+
+                <div class="repo" style="margin-top: 20px;">
+                    <div class="repo__head">
+                        <span class="label" style="margin: 0;" data-i18n="DAT_FILE_LBL">One game, as stored</span>
+                    </div>
+<pre><code>---
+Name: Half-Life 2
+Category: Steam Library
+Platform: Steam
+Status: Installed
+Path: /home/you/.local/share/Steam/steamapps/common/Half-Life 2
+PlayTime: 79.7167
+SteamAppId: 220
+CompatTool: auto
+---</code></pre>
+                </div>
+
+                <h2 style="margin-top: 44px;" data-i18n="DAT_BACKUP_H">Backing it up</h2>
+                <p style="max-width: 62ch;" data-i18n="DAT_BACKUP_P_html">
+                    Copy <code>Parallax_Accounts/</code> somewhere safe. That is the whole backup —
+                    the library, the artwork, every account. Putting it back is the same operation
+                    the other way round, with Parallax closed.
+                </p>
+                <p class="note" style="max-width: 62ch;" data-i18n="DAT_BACKUP_NOTE_html">
+                    The app also has <strong>Export</strong> on the account screen, which packs the
+                    same thing into one file for you.
+                </p>
+
+                <h2 style="margin-top: 44px;" data-i18n="DAT_MOVE_H">Moving to another machine</h2>
+                <p style="max-width: 62ch;" data-i18n="DAT_MOVE_P">
+                    Copy the folder across and Parallax finds it. Your games' locations will not
+                    match, though — a different machine keeps its games somewhere else, and
+                    possibly on a different drive letter. Refresh the library once and every Steam
+                    game corrects itself; the ones you added by hand need pointing at again.
+                </p>
+
+                <h2 style="margin-top: 44px;" data-i18n="DAT_GONE_H">Removing every trace</h2>
+                <p style="max-width: 62ch;" data-i18n="DAT_GONE_P_html">
+                    Uninstalling Parallax deliberately leaves this folder alone, so that
+                    reinstalling picks up where you left off. If you want it gone, delete it
+                    yourself:
+                </p>
+                <div class="repo" style="margin-top: 16px;">
+                    <div class="repo__head">
+                        <span class="label" style="margin: 0;" data-i18n="DAT_LNX">Linux</span>
+                        <button class="copy" data-copy>Copy</button>
+                    </div>
+<pre><code>rm -r ~/.config/parallax-launcher</code></pre>
+                </div>
+                <p class="note" style="max-width: 62ch;" data-i18n="DAT_GONE_NOTE">
+                    Nothing in there is a game. Deleting it loses your shelf, your artwork and your
+                    recorded hours — never the games themselves.
+                </p>
+
+                <h2 style="margin-top: 44px;" data-i18n="DAT_NET_H">What leaves your machine</h2>
+                <p style="max-width: 62ch;" data-i18n="DAT_NET_P">
+                    Three places, and each of them only when you ask: Steam, for the list of
+                    games you own and the hours you have played; SteamGridDB, for artwork; GitHub,
+                    to see whether there is a newer version. That is the entire list. Your library
+                    is never sent anywhere, there is no analytics of any kind in the app, and there
+                    is no account to sign in to.
+                </p>
+            </section>
+        </main>
+
+        <footer class="foot">
+            <div class="wrap foot__in">
+                <div data-i18n="FOOT_BY_html">
+                    Parallax Launcher — created by Arda Yalın Özkan.<br>
+                    Free software under the
+                    <a href="https://github.com/ArdaYalinOzkan/parallax-launcher/blob/main/LICENSE">GNU GPL v3</a>.
+                </div>
+                <div>
+                    <a href="index.html" data-i18n="FOOT_GUIDES">All guides</a> ·
+                    <a href="https://github.com/ArdaYalinOzkan/parallax-launcher" data-i18n="FOOT_SOURCE">Source</a> ·
+                    <a href="https://github.com/ArdaYalinOzkan/parallax-launcher/releases" data-i18n="FOOT_RELEASES">Releases</a>
+                </div>
+            </div>
+        </footer>
+    </div>
+
+    <script src="i18n.js"></script>
+    <script src="site.js"></script>
+    <script src="help.js"></script>
+</body>
+
+</html>
