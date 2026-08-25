@@ -1,10 +1,14 @@
 /* ==============================================================
    The download page
    ==============================================================
-   Somebody arrives here from a button that said "Download". So the
-   download has to actually begin — automatically, without another
-   click — and the page's job is the part that comes after: what the
-   file is and what to do with it.
+   Somebody arriving here from a button that said "Download" expects
+   the download to begin without another click, and it does — but only
+   for them. That button carries ?start=1; the guide list on the help
+   index does not. Reading about installing should not put a hundred
+   megabytes on somebody's disk, which is what happened before.
+
+   Without it the page is simply the guide it always was, with a button
+   that starts the download when it is asked to.
 
    Which file depends on the system they are on, and can be forced
    with ?p=windows or ?p=linux for anyone arriving by link.
@@ -20,16 +24,42 @@
     const platform = (asked === 'windows' || asked === 'linux') ? asked
         : (/Windows/i.test(navigator.userAgent) ? 'windows' : 'linux');
 
+    /* The one thing that separates a download from a page about
+       downloads. */
+    const autoStart = params.get('start') === '1';
+
     const el = (id) => document.getElementById(id);
     const show = (id) => { const n = el(id); if (n) n.classList.remove('hidden'); };
-    const setText = (id, t) => { const n = el(id); if (n && t) n.textContent = t; };
+    const setText = (id, t) => {
+        const n = el(id);
+        if (!n || !t) return;
+        // Written by hand here, so the language engine must not put its
+        // own version back on the next redraw.
+        n.removeAttribute('data-i18n');
+        n.textContent = t;
+    };
+
+    /* These lines are written by this script rather than by the page,
+       so they have to reach the same table the rest of the site uses.
+       They were plain English before, which meant a page that was
+       otherwise Korean announced its download in English. */
+    const t = (key, fallback) => {
+        const table = (window.PARALLAX_STRINGS_ACTIVE) || {};
+        return table[key] || fallback;
+    };
 
     show(platform === 'windows' ? 'stepsWindows' : 'stepsLinux');
 
     const MB = (n) => (n / 1048576).toFixed(0) + ' MB';
 
+    let asset = null, version = '';
+    /* Nothing is written until the release has been looked up. The
+       language engine paints once as the page loads, and painting then
+       would put the failure text on screen for a moment before the
+       answer arrived. */
+    let settled = false;
+
     async function begin() {
-        let asset = null, version = '';
 
         try {
             const r = await fetch(`https://api.github.com/repos/${REPO}/releases/latest`, {
@@ -46,24 +76,12 @@
                the releases page, which is somewhere useful to land. */
         }
 
-        if (!asset) {
-            setText('dlEyebrow', 'Download');
-            setText('dlHeading', 'Pick your file.');
-            setText('dlLede', 'The download could not be started automatically. The button below ' +
-                'opens the releases page, where every file for every system is listed.');
-            setText('dlManualLabel', 'Open the releases page');
-            return;
-        }
+        settled = true;
+        paint();
 
-        const link = el('dlManual');
-        if (link) link.href = asset.browser_download_url;
-        setText('dlManualMeta', MB(asset.size));
-        setText('dlEyebrow', version ? 'Downloading v' + version : 'Downloading');
-        setText('dlHeading', platform === 'windows'
-            ? 'Your installer is downloading.'
-            : 'Your AppImage is downloading.');
-        setText('dlLede', asset.name + ' — ' + MB(asset.size) +
-            '. It should begin on its own in a moment; if it does not, the button below starts it.');
+        if (!asset) return;
+
+        if (!autoStart) return;
 
         /* Started with a hidden iframe rather than by navigating: a
            navigation would replace this page, and the point of the
@@ -74,6 +92,52 @@
         frame.src = asset.browser_download_url;
         document.body.appendChild(frame);
     }
+
+    /* Redrawn whenever the language changes, since these lines are
+       written here rather than carried by the page. */
+    function paint() {
+        if (!settled) return;
+
+        if (!asset) {
+            setText('dlEyebrow', t('INS_LBL', 'Download'));
+            setText('dlHeading', t('INS_NO_ASSET_H', 'Pick your file.'));
+            setText('dlLede', t('INS_NO_ASSET_P', 'The download could not be started ' +
+                'automatically. The button below opens the releases page, where every file ' +
+                'for every system is listed.'));
+            setText('dlManualLabel', t('INS_OPEN_RELEASES', 'Open the releases page'));
+            return;
+        }
+
+        const link = el('dlManual');
+        if (link) link.href = asset.browser_download_url;
+        setText('dlManualMeta', MB(asset.size));
+
+        if (!autoStart) {
+            // Arrived from the guides, not from a Download button. The
+            // file is identified and one click away, and nothing has
+            // been fetched.
+            setText('dlEyebrow', version ? 'v' + version : t('INS_LBL', 'Download'));
+            setText('dlHeading', t('INS_GUIDE_H', 'Downloading and installing.'));
+            setText('dlLede', asset.name + ' — ' + MB(asset.size) + '. ' +
+                t('INS_GUIDE_P', 'The button below starts the download; the steps after it are ' +
+                    'what to do once the file arrives.'));
+            setText('dlManualLabel', t('INS_START', 'Download now'));
+            return;
+        }
+
+        setText('dlEyebrow', version ? t('INS_LBL', 'Downloading') + ' v' + version : t('INS_LBL', 'Downloading'));
+        setText('dlHeading', platform === 'windows'
+            ? t('INS_H_WIN', 'Your installer is downloading.')
+            : t('INS_H_LNX', 'Your AppImage is downloading.'));
+        setText('dlLede', asset.name + ' — ' + MB(asset.size) + '. ' +
+            t('INS_STARTED_P', 'It should begin on its own in a moment; if it does not, the ' +
+                'button below starts it.'));
+        // Every branch sets this, so none of them can leave another
+        // branch's wording behind.
+        setText('dlManualLabel', t('INS_MANUAL', "Download didn't start? Click here"));
+    }
+
+    document.addEventListener('parallax:lang', paint);
 
     begin();
 })();
