@@ -36,8 +36,9 @@
                     <span>Parallax</span>
                 </a>
                 <nav class="top__links">
-                    <a href="./">All guides</a>
-                    <a href="https://github.com/ArdaYalinOzkan/parallax-launcher">Source</a>
+                    <a href="./" data-i18n="NAV_GUIDES">All guides</a>
+                    <a href="https://github.com/ArdaYalinOzkan/parallax-launcher" data-i18n="NAV_SOURCE">Source</a>
+                    <span class="langpick__slot" data-lang-mount></span>
                 </nav>
             </div>
         </header>
@@ -51,19 +52,19 @@
                         <path d="M67.32 45.00 L50.00 55.00 L50.00 75.00 L67.32 85.00 L84.64 75.00 L84.64 55.00 Z"/>
                     </g>
                 </svg>
-                <span class="label rise rise--1" id="dlEyebrow">Downloading</span>
-                <h1 class="rise rise--2" style="max-width: 16ch;" id="dlHeading">Your download is starting.</h1>
-                <p class="lede rise rise--3" style="max-width: 56ch;" id="dlLede">
+                <span class="label rise rise--1" id="dlEyebrow" data-i18n="INS_LBL">Downloading</span>
+                <h1 class="rise rise--2" style="max-width: 16ch;" id="dlHeading" data-i18n="INS_H1">Your download is starting.</h1>
+                <p class="lede rise rise--3" style="max-width: 56ch;" id="dlLede" data-i18n="INS_LEDE">
                     It should begin on its own in a moment. Nothing else is needed from you here —
                     this page is only what to do once it lands.
                 </p>
 
                 <div class="hero__actions rise rise--4">
                     <a class="btn btn--primary" id="dlManual" href="https://github.com/ArdaYalinOzkan/parallax-launcher/releases/latest">
-                        <span id="dlManualLabel">Download didn't start? Click here</span>
+                        <span id="dlManualLabel" data-i18n="INS_MANUAL">Download didn't start? Click here</span>
                         <span class="btn__meta" id="dlManualMeta"></span>
                     </a>
-                    <a class="btn btn--ghost" href="https://parallaxlauncher.com/#get">All files</a>
+                    <a class="btn btn--ghost" href="https://parallaxlauncher.com/#get" data-i18n="INS_ALLFILES">All files</a>
                 </div>
             </section>
 
@@ -71,21 +72,21 @@
                  the others are here for anyone who arrives by link. -->
             <section class="wrap" style="padding-block-start: 0;" id="stepsSection">
                 <div id="stepsWindows" class="platform-steps hidden">
-                    <span class="label">Windows</span>
-                    <h2>Then run the installer.</h2>
+                    <span class="label" data-i18n="INS_WIN_LBL">Windows</span>
+                    <h2 data-i18n="INS_WIN_H2">Then run the installer.</h2>
                     <ol class="steps">
                         <li class="step" style="grid-template-columns: 1fr;">
                             <div class="step__body">
                                 <span class="step__n">1</span>
-                                <h3>Open the file you just downloaded</h3>
-                                <p><code>Parallax-Launcher-Setup.exe</code>, usually in your Downloads folder.</p>
+                                <h3 data-i18n="INS_W1_H">Open the file you just downloaded</h3>
+                                <p data-i18n="INS_W1_P_html"><code>Parallax-Launcher-Setup.exe</code>, usually in your Downloads folder.</p>
                             </div>
                         </li>
                         <li class="step" style="grid-template-columns: 1fr;">
                             <div class="step__body">
                                 <span class="step__n">2</span>
-                                <h3>Windows will stop it the first time</h3>
-                                <p>It is not code-signed, so Windows blocks anything it has not seen
+                                <h3 data-i18n="INS_W2_H">Windows will stop it the first time</h3>
+                                <p data-i18n="INS_W2_P_html">It is not code-signed, so Windows blocks anything it has not seen
                                     before. Two clicks get past SmartScreen; Smart App Control needs
                                     one setting changed.
                                     <a href="windows.html">Both are shown here, with pictures</a>.</p>
@@ -94,8 +95,8 @@
                         <li class="step" style="grid-template-columns: 1fr;">
                             <div class="step__body">
                                 <span class="step__n">3</span>
-                                <h3>Install where you like</h3>
-                                <p>It installs for your user, so no administrator password is asked
+                                <h3 data-i18n="INS_W3_H">Install where you like</h3>
+                                <p data-i18n="INS_W3_P">It installs for your user, so no administrator password is asked
                                     for — and none is asked for when it updates itself later.</p>
                             </div>
                         </li>
@@ -103,14 +104,14 @@
                 </div>
 
                 <div id="stepsLinux" class="platform-steps hidden">
-                    <span class="label">Linux</span>
-                    <h2>Then make it executable and run it.</h2>
+                    <span class="label" data-i18n="INS_LNX_LBL">Linux</span>
+                    <h2 data-i18n="INS_LNX_H2">Then make it executable and run it.</h2>
                     <ol class="steps">
                         <li class="step" style="grid-template-columns: 1fr;">
                             <div class="step__body">
                                 <span class="step__n">1</span>
-                                <h3>Allow it to run</h3>
-                                <p>Right-click the file → Properties → Permissions → <em>Allow
+                                <h3 data-i18n="INS_L1_H">Allow it to run</h3>
+                                <p data-i18n="INS_L1_P_html">Right-click the file → Properties → Permissions → <em>Allow
                                     executing as program</em>. Or in a terminal:</p>
 <pre style="margin-top: 10px;"><code>chmod +x Parallax-Launcher-*.AppImage</code></pre>
                             </div>
@@ -118,16 +119,17 @@
                         <li class="step" style="grid-template-columns: 1fr;">
                             <div class="step__body">
                                 <span class="step__n">2</span>
-                                <h3>Double-click it</h3>
-                                <p>Nothing is installed and nothing is left behind — it is one file,
-                                    and deleting it removes the program.</p>
+                                <h3 data-i18n="INS_L2_H">Double-click it</h3>
+                                <p data-i18n="INS_L2_P">Nothing is installed. It adds itself to your application
+                                    menu on first run, and deleting the file removes the program —
+                                    the menu entry goes with it.</p>
                             </div>
                         </li>
                         <li class="step" style="grid-template-columns: 1fr;">
                             <div class="step__body">
                                 <span class="step__n">3</span>
-                                <h3>It keeps itself current</h3>
-                                <p>It watches for new releases and offers to replace itself. On
+                                <h3 data-i18n="INS_L3_H">It keeps itself current</h3>
+                                <p data-i18n="INS_L3_P_html">It watches for new releases and offers to replace itself. On
                                     Debian or Ubuntu you can
                                     <a href="updating.html">let your package manager do it instead</a>.</p>
                             </div>
@@ -139,20 +141,21 @@
 
         <footer class="foot">
             <div class="wrap foot__in">
-                <div>
+                <div data-i18n="FOOT_BY_html">
                     Parallax Launcher — created by Arda Yalın Özkan.<br>
                     Free software under the
                     <a href="https://github.com/ArdaYalinOzkan/parallax-launcher/blob/main/LICENSE">GNU GPL v3</a>.
                 </div>
                 <div>
-                    <a href="./">All guides</a> ·
-                    <a href="https://parallaxlauncher.com/">Home</a> ·
-                    <a href="https://github.com/ArdaYalinOzkan/parallax-launcher/releases">Releases</a>
+                    <a href="./" data-i18n="FOOT_GUIDES">All guides</a> ·
+                    <a href="https://parallaxlauncher.com/" data-i18n="FOOT_HOME">Home</a> ·
+                    <a href="https://github.com/ArdaYalinOzkan/parallax-launcher/releases" data-i18n="FOOT_RELEASES">Releases</a>
                 </div>
             </div>
         </footer>
     </div>
 
+    <script src="i18n.js"></script>
     <script src="site.js"></script>
     <script src="install.js"></script>
 </body>

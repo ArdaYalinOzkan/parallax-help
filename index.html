@@ -36,17 +36,18 @@
                     <span>Parallax</span>
                 </a>
                 <nav class="top__links">
-                    <a href="https://parallaxlauncher.com/#get">Download</a>
-                    <a href="https://github.com/ArdaYalinOzkan/parallax-launcher">Source</a>
+                    <a href="https://parallaxlauncher.com/#get" data-i18n="NAV_DOWNLOAD">Download</a>
+                    <a href="https://github.com/ArdaYalinOzkan/parallax-launcher" data-i18n="NAV_SOURCE">Source</a>
+                    <span class="langpick__slot" data-lang-mount></span>
                 </nav>
             </div>
         </header>
 
         <main>
             <section class="hero wrap" style="padding-block-end: clamp(30px, 5vh, 54px);">
-                <span class="label rise rise--1">Help</span>
-                <h1 class="rise rise--2" style="max-width: 15ch;">Installing, and what to expect.</h1>
-                <p class="lede rise rise--3" style="max-width: 56ch;">
+                <span class="label rise rise--1" data-i18n="IDX_LBL">Help</span>
+                <h1 class="rise rise--2" style="max-width: 15ch;" data-i18n="IDX_H1">Installing, and what to expect.</h1>
+                <p class="lede rise rise--3" style="max-width: 56ch;" data-i18n="IDX_LEDE">
                     Short guides for the parts that are not obvious — mostly because an
                     operating system decided to be careful about a program it has not seen
                     before.
@@ -56,39 +57,40 @@
             <section class="wrap" style="padding-block-start: 0;">
                 <div class="guides">
                     <a class="guide" href="install.html">
-                        <span class="guide__for">Getting started</span>
-                        <h3>Downloading and installing</h3>
-                        <p>Which file is yours, what to do with it once it lands, and the one
+                        <span class="guide__for" data-i18n="IDX_G1_FOR">Getting started</span>
+                        <h3 data-i18n="IDX_G1_H">Downloading and installing</h3>
+                        <p data-i18n="IDX_G1_P">Which file is yours, what to do with it once it lands, and the one
                             thing Windows will say about it.</p>
-                        <span class="guide__go">Read →</span>
+                        <span class="guide__go" data-i18n="READ">Read →</span>
                     </a>
 
                     <a class="guide" href="windows.html">
-                        <span class="guide__for">Windows</span>
-                        <h3>Getting past Windows' warnings</h3>
-                        <p>SmartScreen and Smart App Control both stop the installer, and they
+                        <span class="guide__for" data-i18n="IDX_G2_FOR">Windows</span>
+                        <h3 data-i18n="IDX_G2_H">Getting past Windows' warnings</h3>
+                        <p data-i18n="IDX_G2_P">SmartScreen and Smart App Control both stop the installer, and they
                             look nothing alike. What each one is, and what to do.</p>
-                        <span class="guide__go">Read →</span>
+                        <span class="guide__go" data-i18n="READ">Read →</span>
                     </a>
 
                     <a class="guide" href="updating.html">
-                        <span class="guide__for">All systems</span>
-                        <h3>How updates reach you</h3>
-                        <p>Three ways to install and three ways updates arrive. Which one you
+                        <span class="guide__for" data-i18n="IDX_G3_FOR">All systems</span>
+                        <h3 data-i18n="IDX_G3_H">How updates reach you</h3>
+                        <p data-i18n="IDX_G3_P">Three ways to install and three ways updates arrive. Which one you
                             have, and how to make your system handle it instead.</p>
-                        <span class="guide__go">Read →</span>
+                        <span class="guide__go" data-i18n="READ">Read →</span>
                     </a>
 
                     <a class="guide" href="keys.html">
-                        <span class="guide__for">Settings</span>
-                        <h3>API keys, and when you need one</h3>
-                        <p>Most of the app needs none. Two things do. What they unlock, and how
+                        <span class="guide__for" data-i18n="IDX_G4_FOR">Settings</span>
+                        <h3 data-i18n="IDX_G4_H">API keys, and when you need one</h3>
+                        <p data-i18n="IDX_G4_P">Most of the app needs none. Two things do. What they unlock, and how
                             to get your own in a minute.</p>
-                        <span class="guide__go">Read →</span>
+                        <span class="guide__go" data-i18n="READ">Read →</span>
                     </a>
                 </div>
 
-                <p style="margin-top: 34px; font-size: .86rem; color: var(--star-faint);">
+                <p style="margin-top: 34px; font-size: .86rem; color: var(--star-faint);"
+                    data-i18n="IDX_ASK_html">
                     Something not covered here?
                     <a href="https://github.com/ArdaYalinOzkan/parallax-launcher/issues">Open an issue</a>
                     — it is read.
@@ -98,20 +100,21 @@
 
         <footer class="foot">
             <div class="wrap foot__in">
-                <div>
+                <div data-i18n="FOOT_BY_html">
                     Parallax Launcher — created by Arda Yalın Özkan.<br>
                     Free software under the
                     <a href="https://github.com/ArdaYalinOzkan/parallax-launcher/blob/main/LICENSE">GNU GPL v3</a>.
                 </div>
                 <div>
-                    <a href="https://parallaxlauncher.com/">Home</a> ·
-                    <a href="https://github.com/ArdaYalinOzkan/parallax-launcher">Source</a> ·
-                    <a href="https://github.com/ArdaYalinOzkan/parallax-launcher/releases">Releases</a>
+                    <a href="https://parallaxlauncher.com/" data-i18n="FOOT_HOME">Home</a> ·
+                    <a href="https://github.com/ArdaYalinOzkan/parallax-launcher" data-i18n="FOOT_SOURCE">Source</a> ·
+                    <a href="https://github.com/ArdaYalinOzkan/parallax-launcher/releases" data-i18n="FOOT_RELEASES">Releases</a>
                 </div>
             </div>
         </footer>
     </div>
 
+    <script src="i18n.js"></script>
     <script src="site.js"></script>
 </body>
 

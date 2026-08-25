@@ -36,17 +36,18 @@
                     <span>Parallax</span>
                 </a>
                 <nav class="top__links">
-                    <a href="./">All guides</a>
-                    <a href="https://parallaxlauncher.com/#get">Download</a>
+                    <a href="./" data-i18n="NAV_GUIDES">All guides</a>
+                    <a href="https://parallaxlauncher.com/#get" data-i18n="NAV_DOWNLOAD">Download</a>
+                    <span class="langpick__slot" data-lang-mount></span>
                 </nav>
             </div>
         </header>
 
         <main>
             <section class="hero wrap" style="padding-block-end: clamp(30px, 5vh, 54px);">
-                <span class="label rise rise--1">Settings</span>
-                <h1 class="rise rise--2" style="max-width: 17ch;">API keys, and when you need one.</h1>
-                <p class="lede rise rise--3" style="max-width: 58ch;">
+                <span class="label rise rise--1" data-i18n="KEY_LBL">Settings</span>
+                <h1 class="rise rise--2" style="max-width: 17ch;" data-i18n="KEY_H1">API keys, and when you need one.</h1>
+                <p class="lede rise rise--3" style="max-width: 58ch;" data-i18n="KEY_LEDE">
                     Most of what the launcher does needs no key at all. Two things do, and only
                     one of them is missing from a fresh install.
                 </p>
@@ -55,29 +56,29 @@
             <section class="wrap" style="padding-block-start: 0;">
                 <div class="grid">
                     <div class="cell">
-                        <span class="cell__num">No key</span>
-                        <h3>Finding and launching your games</h3>
-                        <p>Installed games are read from Steam's own records on your disk.
+                        <span class="cell__num" data-i18n="KEY_NONE">No key</span>
+                        <h3 data-i18n="KEY_C1_H">Finding and launching your games</h3>
+                        <p data-i18n="KEY_C1_P">Installed games are read from Steam's own records on your disk.
                             Covers and banners come from Steam's public images. Playtime,
                             Proton settings, launching — none of it touches an API.</p>
                     </div>
                     <div class="cell">
-                        <span class="cell__num">No key</span>
-                        <h3>Searching for a game to add</h3>
-                        <p>Steam's store search finds anything sold there, without a key. That
+                        <span class="cell__num" data-i18n="KEY_NONE">No key</span>
+                        <h3 data-i18n="KEY_C2_H">Searching for a game to add</h3>
+                        <p data-i18n="KEY_C2_P">Steam's store search finds anything sold there, without a key. That
                             is most of what anyone is looking for.</p>
                     </div>
                     <div class="cell">
-                        <span class="cell__num">Built in</span>
-                        <h3>Importing your whole library</h3>
-                        <p>Including games you own but have not installed. A Steam key ships
+                        <span class="cell__num" data-i18n="KEY_BUILTIN">Built in</span>
+                        <h3 data-i18n="KEY_C3_H">Importing your whole library</h3>
+                        <p data-i18n="KEY_C3_P">Including games you own but have not installed. A Steam key ships
                             with the app so this works immediately — but it is shared by
                             everyone, and Steam counts requests per key.</p>
                     </div>
                     <div class="cell">
-                        <span class="cell__num">Yours to add</span>
-                        <h3>Community artwork</h3>
-                        <p>SteamGridDB has hundreds of covers per game where Steam has one, and
+                        <span class="cell__num" data-i18n="KEY_YOURS">Yours to add</span>
+                        <h3 data-i18n="KEY_C4_H">Community artwork</h3>
+                        <p data-i18n="KEY_C4_P">SteamGridDB has hundreds of covers per game where Steam has one, and
                             knows about games Steam does not sell. No key ships for it.</p>
                     </div>
                 </div>
@@ -85,28 +86,28 @@
 
             <section class="wrap">
                 <span class="label">SteamGridDB</span>
-                <h2>Getting one takes a minute.</h2>
+                <h2 data-i18n="KEY_SGDB_H2">Getting one takes a minute.</h2>
                 <ol class="steps">
                     <li class="step" style="grid-template-columns: 1fr;">
                         <div class="step__body">
                             <span class="step__n">1</span>
-                            <h3>Sign in at steamgriddb.com</h3>
-                            <p>With your Steam account — there is nothing else to fill in.</p>
+                            <h3 data-i18n="KEY_S1_H">Sign in at steamgriddb.com</h3>
+                            <p data-i18n="KEY_S1_P">With your Steam account — there is nothing else to fill in.</p>
                         </div>
                     </li>
                     <li class="step" style="grid-template-columns: 1fr;">
                         <div class="step__body">
                             <span class="step__n">2</span>
-                            <h3>Open your profile's API page</h3>
-                            <p><a href="https://www.steamgriddb.com/profile/preferences/api">steamgriddb.com/profile/preferences/api</a>
+                            <h3 data-i18n="KEY_S2_H">Open your profile's API page</h3>
+                            <p data-i18n="KEY_S2_P_html"><a href="https://www.steamgriddb.com/profile/preferences/api">steamgriddb.com/profile/preferences/api</a>
                                 and generate a key.</p>
                         </div>
                     </li>
                     <li class="step" style="grid-template-columns: 1fr;">
                         <div class="step__body">
                             <span class="step__n">3</span>
-                            <h3>Paste it into Settings → API</h3>
-                            <p>It is stored in your own config folder and never leaves your
+                            <h3 data-i18n="KEY_S3_H">Paste it into Settings → API</h3>
+                            <p data-i18n="KEY_S3_P">It is stored in your own config folder and never leaves your
                                 machine except to talk to SteamGridDB.</p>
                         </div>
                     </li>
@@ -115,12 +116,12 @@
 
             <section class="wrap">
                 <span class="label">Steam</span>
-                <h2>Using your own instead of the shared one.</h2>
-                <p class="lede">
+                <h2 data-i18n="KEY_STEAM_H2">Using your own instead of the shared one.</h2>
+                <p class="lede" data-i18n="KEY_STEAM_LEDE">
                     Worth doing if you import often. The shared key is one allowance divided
                     among everybody; your own is yours alone.
                 </p>
-                <p style="font-size: .88rem; color: var(--star-dim);">
+                <p style="font-size: .88rem; color: var(--star-dim);" data-i18n="KEY_STEAM_NOTE_html">
                     Get one at <a href="https://steamcommunity.com/dev/apikey">steamcommunity.com/dev/apikey</a>
                     and paste it into Settings → API. A key you enter is always read before the
                     built-in one.
@@ -130,20 +131,21 @@
 
         <footer class="foot">
             <div class="wrap foot__in">
-                <div>
+                <div data-i18n="FOOT_BY_html">
                     Parallax Launcher — created by Arda Yalın Özkan.<br>
                     Free software under the
                     <a href="https://github.com/ArdaYalinOzkan/parallax-launcher/blob/main/LICENSE">GNU GPL v3</a>.
                 </div>
                 <div>
-                    <a href="./">All guides</a> ·
-                    <a href="https://parallaxlauncher.com/">Home</a> ·
-                    <a href="https://github.com/ArdaYalinOzkan/parallax-launcher">Source</a>
+                    <a href="./" data-i18n="FOOT_GUIDES">All guides</a> ·
+                    <a href="https://parallaxlauncher.com/" data-i18n="FOOT_HOME">Home</a> ·
+                    <a href="https://github.com/ArdaYalinOzkan/parallax-launcher" data-i18n="FOOT_SOURCE">Source</a>
                 </div>
             </div>
         </footer>
     </div>
 
+    <script src="i18n.js"></script>
     <script src="site.js"></script>
 </body>
 

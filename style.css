@@ -725,3 +725,98 @@ a:hover { text-decoration-color: currentColor; }
     font-size: 0.76rem;
     color: var(--star);
 }
+
+/* Scrollbars.
+
+   The default one is drawn by the browser in its own colours — a light
+   grey trough with arrow buttons, which on a page this dark reads as a
+   piece of somebody else's interface that fell in. Firefox takes the two
+   properties; everything else takes the pseudo-elements. */
+* {
+    scrollbar-width: thin;
+    scrollbar-color: var(--ink-edge) transparent;
+}
+
+::-webkit-scrollbar {
+    width: 10px;
+    height: 10px;
+}
+
+::-webkit-scrollbar-track {
+    background: transparent;
+}
+
+::-webkit-scrollbar-thumb {
+    background: var(--ink-edge);
+    border-radius: 99px;
+    /* Inset from the edge, so the bar reads as a thin rule rather than a
+       block filling its channel. */
+    border: 2px solid transparent;
+    background-clip: content-box;
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: var(--star-faint);
+    background-clip: content-box;
+}
+
+::-webkit-scrollbar-corner {
+    background: transparent;
+}
+
+/* The language picker.
+
+   A real <select>, not a menu built out of divs: the browser already
+   knows how to open one on a phone, how to reach it from the keyboard,
+   and how to read it out. Only its skin is ours — and it is the app's
+   skin, down to the two-gradient chevron, so the page and the program
+   it describes do not look like they came from different places. */
+.langpick__slot { display: inline-flex; }
+
+.langpick {
+    appearance: none;
+    -webkit-appearance: none;
+    background-color: rgba(255, 255, 255, .03);
+    border: 1px solid var(--line-faint);
+    border-radius: var(--r-sm);
+    color: var(--star);
+    font-family: var(--font-ui);
+    font-size: 0.76rem;
+    font-weight: 400;
+    letter-spacing: 0;
+    padding: 7px 30px 7px 12px;
+    text-transform: none;
+    cursor: pointer;
+    outline: none;
+
+    /* Two gradients folded into an arrowhead — the same one the app
+       draws, rather than an image that would have to match it. */
+    background-image: linear-gradient(45deg, transparent 50%, var(--star-faint) 50%),
+        linear-gradient(135deg, var(--star-faint) 50%, transparent 50%);
+    background-position: calc(100% - 15px) center, calc(100% - 10px) center;
+    background-size: 5px 5px, 5px 5px;
+    background-repeat: no-repeat;
+    transition: border-color var(--t-main), background-color var(--t-main), color var(--t-main);
+}
+
+.langpick:hover,
+.langpick:focus-visible {
+    border-color: var(--line-strong);
+    color: var(--star-hi);
+    background-color: rgba(255, 255, 255, .055);
+}
+
+/* The dropdown itself is drawn by the system, which does not inherit the
+   page's colours — so the options are given them explicitly. */
+.langpick option {
+    background: var(--ink-lift);
+    color: var(--star);
+}
+
+@media (max-width: 640px) {
+    .langpick {
+        font-size: 0.72rem;
+        padding: 6px 26px 6px 9px;
+        background-position: calc(100% - 13px) center, calc(100% - 9px) center;
+    }
+}

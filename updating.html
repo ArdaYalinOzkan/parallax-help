@@ -36,17 +36,18 @@
                     <span>Parallax</span>
                 </a>
                 <nav class="top__links">
-                    <a href="./">All guides</a>
-                    <a href="https://parallaxlauncher.com/#get">Download</a>
+                    <a href="./" data-i18n="NAV_GUIDES">All guides</a>
+                    <a href="https://parallaxlauncher.com/#get" data-i18n="NAV_DOWNLOAD">Download</a>
+                    <span class="langpick__slot" data-lang-mount></span>
                 </nav>
             </div>
         </header>
 
         <main>
             <section class="hero wrap" style="padding-block-end: clamp(30px, 5vh, 54px);">
-                <span class="label rise rise--1">All systems</span>
-                <h1 class="rise rise--2" style="max-width: 16ch;">How updates reach you.</h1>
-                <p class="lede rise rise--3" style="max-width: 58ch;">
+                <span class="label rise rise--1" data-i18n="UPD_LBL">All systems</span>
+                <h1 class="rise rise--2" style="max-width: 16ch;" data-i18n="UPD_H1">How updates reach you.</h1>
+                <p class="lede rise rise--3" style="max-width: 58ch;" data-i18n="UPD_LEDE">
                     Three ways to install, and updates arrive differently in each. You do not
                     have to choose — you already did, when you picked a file.
                 </p>
@@ -56,22 +57,22 @@
                 <div class="grid">
                     <div class="cell">
                         <span class="cell__num">.AppImage</span>
-                        <h3>The app fetches it</h3>
-                        <p>One file, so it can replace itself. It checks once a day, tells you
+                        <h3 data-i18n="UPD_C1_H">The app fetches it</h3>
+                        <p data-i18n="UPD_C1_P">One file, so it can replace itself. It checks once a day, tells you
                             when there is something newer, and downloads only after you press
                             the button. Nothing arrives unasked.</p>
                     </div>
                     <div class="cell">
                         <span class="cell__num">.exe</span>
-                        <h3>The app fetches it</h3>
-                        <p>Same as above, and it downloads only the parts that changed rather
+                        <h3 data-i18n="UPD_C2_H">The app fetches it</h3>
+                        <p data-i18n="UPD_C2_P">Same as above, and it downloads only the parts that changed rather
                             than the whole installer. Because it installs per user, no
                             administrator password is needed to update.</p>
                     </div>
                     <div class="cell">
                         <span class="cell__num">.deb</span>
-                        <h3>Either, your choice</h3>
-                        <p>On its own it updates itself through <code>dpkg</code>, which asks
+                        <h3 data-i18n="UPD_C3_H">Either, your choice</h3>
+                        <p data-i18n="UPD_C3_P_html">On its own it updates itself through <code>dpkg</code>, which asks
                             for your password the way any install does. Add the repository and
                             your system takes over instead — see below.</p>
                     </div>
@@ -79,32 +80,32 @@
             </section>
 
             <section class="wrap">
-                <span class="label">Debian and Ubuntu</span>
-                <h2>Letting apt do it instead.</h2>
-                <p class="lede">
+                <span class="label" data-i18n="UPD_APT_LBL">Debian and Ubuntu</span>
+                <h2 data-i18n="UPD_APT_H2">Letting apt do it instead.</h2>
+                <p class="lede" data-i18n="UPD_APT_LEDE">
                     Add the package repository once and Parallax joins your normal updates. One
                     button in the software centre brings it up to date along with everything
                     else, and the app stops asking.
                 </p>
-                <p style="font-size: .88rem; color: var(--star-dim);">
+                <p style="font-size: .88rem; color: var(--star-dim);" data-i18n="UPD_APT_NOTE">
                     The app notices when you have done this and steps back — two updaters
                     chasing the same package would offer you the same version twice.
                 </p>
                 <p style="margin-top: 22px;">
                     <a class="btn btn--primary"
-                        href="https://github.com/ArdaYalinOzkan/parallax-apt">The commands, on GitHub</a>
+                        href="https://github.com/ArdaYalinOzkan/parallax-apt" data-i18n="UPD_APT_BTN">The commands, on GitHub</a>
                 </p>
             </section>
 
             <section class="wrap">
-                <span class="label">If you would rather not</span>
-                <h2>Turning the checking off.</h2>
-                <p class="lede">
+                <span class="label" data-i18n="UPD_OFF_LBL">If you would rather not</span>
+                <h2 data-i18n="UPD_OFF_H2">Turning the checking off.</h2>
+                <p class="lede" data-i18n="UPD_OFF_LEDE_html">
                     Settings → About → <em style="font-style: normal; color: var(--star-hi);">Check
                     automatically</em>. With it off, nothing contacts GitHub unless you press the
                     button yourself.
                 </p>
-                <p style="font-size: .88rem; color: var(--star-dim); max-width: 62ch;">
+                <p style="font-size: .88rem; color: var(--star-dim); max-width: 62ch;" data-i18n="UPD_OFF_NOTE">
                     An update check is a request to a server, which means an IP address and a
                     version number leave your machine. That is worth being able to decline, so
                     you can.
@@ -114,20 +115,21 @@
 
         <footer class="foot">
             <div class="wrap foot__in">
-                <div>
+                <div data-i18n="FOOT_BY_html">
                     Parallax Launcher — created by Arda Yalın Özkan.<br>
                     Free software under the
                     <a href="https://github.com/ArdaYalinOzkan/parallax-launcher/blob/main/LICENSE">GNU GPL v3</a>.
                 </div>
                 <div>
-                    <a href="./">All guides</a> ·
-                    <a href="https://parallaxlauncher.com/">Home</a> ·
-                    <a href="https://github.com/ArdaYalinOzkan/parallax-launcher">Source</a>
+                    <a href="./" data-i18n="FOOT_GUIDES">All guides</a> ·
+                    <a href="https://parallaxlauncher.com/" data-i18n="FOOT_HOME">Home</a> ·
+                    <a href="https://github.com/ArdaYalinOzkan/parallax-launcher" data-i18n="FOOT_SOURCE">Source</a>
                 </div>
             </div>
         </footer>
     </div>
 
+    <script src="i18n.js"></script>
     <script src="site.js"></script>
 </body>
 
