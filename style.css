@@ -824,10 +824,11 @@ a:hover { text-decoration-color: currentColor; }
 /* ==============================================================
    Drawers
    ==============================================================
-   Three ways to install and only one of them is the reader's. Open
-   drawers rather than three sections in a row: the two that do not
-   apply cost nothing to skip, and closed <details> costs nothing to
-   render either.
+   Built to the same measure as the ones on the main site: thin
+   rules, a small caret that turns, and nothing else. Three ways to
+   install and only one of them is the reader's — the two that do
+   not apply should cost nothing to skip, and a closed <details>
+   costs nothing to render either.
 
    `name` makes the browser keep one open at a time on its own.
    Browsers that do not know the attribute yet fall back to the
@@ -835,7 +836,7 @@ a:hover { text-decoration-color: currentColor; }
    ============================================================== */
 
 .drawers {
-    margin-top: 30px;
+    margin-top: 26px;
     border-top: 1px solid var(--line);
 }
 
@@ -845,9 +846,9 @@ a:hover { text-decoration-color: currentColor; }
 
 .drawer summary {
     display: flex;
-    align-items: baseline;
-    gap: 14px;
-    padding: 20px 2px;
+    align-items: center;
+    gap: 11px;
+    padding: 14px 2px;
     cursor: pointer;
     list-style: none;
     transition: color .18s ease;
@@ -855,17 +856,16 @@ a:hover { text-decoration-color: currentColor; }
 
 .drawer summary::-webkit-details-marker { display: none; }
 
-/* The caret, which turns when the drawer opens. */
+/* A caret that turns when the drawer opens. */
 .drawer summary::before {
     content: "";
-    width: 7px;
-    height: 7px;
+    width: 6px;
+    height: 6px;
     border-right: 1.5px solid var(--star-faint);
     border-bottom: 1.5px solid var(--star-faint);
-    transform: rotate(-45deg) translateY(-2px);
-    transition: transform .2s ease, border-color .2s ease;
+    transform: rotate(-45deg);
+    transition: transform .18s ease, border-color .18s ease;
     flex: none;
-    align-self: center;
 }
 
 .drawer[open] summary::before { transform: rotate(45deg); }
@@ -873,10 +873,13 @@ a:hover { text-decoration-color: currentColor; }
 .drawer summary:hover::before,
 .drawer[open] summary::before { border-color: var(--star); }
 
+/* The title stays in the reading face. Several of these are whole
+   sentences, and two of the eight languages have no monospaced face
+   to set them in. */
 .drawer__title {
-    font-size: 1.06rem;
-    font-weight: 600;
-    color: var(--star);
+    font-size: 0.95rem;
+    font-weight: 500;
+    color: var(--star-dim);
     transition: color .18s ease;
 }
 
@@ -885,20 +888,22 @@ a:hover { text-decoration-color: currentColor; }
 
 .drawer__hint {
     font-family: var(--font-mono);
-    font-size: 0.74rem;
+    font-size: 0.72rem;
     color: var(--star-faint);
     margin-left: auto;
+    padding-left: 16px;
     text-align: right;
 }
 
 .drawer__body {
-    padding: 0 0 26px 21px;
+    padding: 2px 0 20px 17px;
     max-width: 62ch;
 }
 
 .drawer__body > p:first-child { margin-top: 0; }
 .drawer__body p:last-child { margin-bottom: 0; }
-.drawer__body .steps { margin-top: 4px; }
+.drawer__body .steps { margin-top: 6px; }
+.drawer__body h3 { margin-top: 22px; }
 
 @media (max-width: 560px) {
     .drawer__hint { display: none; }
