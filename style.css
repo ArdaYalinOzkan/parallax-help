@@ -566,31 +566,60 @@ a:hover { text-decoration-color: currentColor; }
 
 /* The number is a position in a sequence, which these genuinely are
    — do this, then this. It earns the marker. */
+/* The number sits in the margin, where a list marker goes, rather
+   than floating on a line of its own above the heading. */
+.step__body {
+    position: relative;
+    padding-left: 34px;
+}
+
 .step__n {
+    position: absolute;
+    left: 0;
+    top: 1px;
+    font-family: var(--font-mono);
+    font-size: 0.86rem;
+    font-variant-numeric: tabular-nums;
+    color: var(--star-faint);
+    line-height: 1.5;
+}
+
+/* The command reference is not a sequence of steps, so its labels are
+   not numbers and do not belong in a margin. */
+.cmd-name {
     display: inline-block;
     font-family: var(--font-mono);
-    font-size: 0.66rem;
-    letter-spacing: .14em;
-    color: var(--star-faint);
-    margin-bottom: 10px;
+    font-size: 0.82rem;
+    color: var(--star);
+    margin-bottom: 8px;
+}
+
+.step__body:has(.cmd-name) {
+    padding-left: 0;
 }
 
 .step .shot { margin-top: 0; }
 
 /* Two asides with different weights: one explains, one is a caution
-   somebody needs to have read before acting. The second earns its
-   colour; the first would be shouting. */
+   somebody needs to have read before acting.
+
+   A rule down the left rather than a box around the outside. A box
+   lifts the sentence out of the page and asks to be looked at, which
+   is more attention than an aside deserves; the rule marks it as a
+   step aside from the paragraph above and nothing more. The second
+   earns its colour; the first would be shouting. */
 .note,
 .warn {
-    padding: 22px 24px;
-    border-radius: var(--r-md);
-    border: 1px solid var(--line);
-    background: var(--ink-base);
+    margin: 20px 0;
+    padding: 2px 0 2px 18px;
+    border-left: 2px solid var(--line-strong);
+    background: none;
+    border-radius: 0;
+    color: var(--star-dim);
 }
 
 .warn {
-    border-color: rgba(224, 162, 71, .38);
-    background: linear-gradient(180deg, rgba(224, 162, 71, .05), transparent 60%), var(--ink-base);
+    border-left-color: rgba(224, 162, 71, .55);
 }
 
 .warn h3 { color: #E0A247; }
@@ -903,7 +932,9 @@ a:hover { text-decoration-color: currentColor; }
 .drawer__body > p:first-child { margin-top: 0; }
 .drawer__body p:last-child { margin-bottom: 0; }
 .drawer__body .steps { margin-top: 6px; }
-.drawer__body h3 { margin-top: 22px; }
+/* Only the drawer's own sub-headings, not the ones inside steps —
+   those sit beside their number and must not be pushed off it. */
+.drawer__body > h3 { margin-top: 22px; }
 
 @media (max-width: 560px) {
     .drawer__hint { display: none; }

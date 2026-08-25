@@ -46,22 +46,9 @@
         });
     });
 
-    /* ---- one drawer at a time ----------------------------------
-       Browsers that understand <details name> already do this. The
-       ones that do not get it here, and the test is for the property
-       rather than the browser. */
-
-    var drawers = Array.prototype.slice.call(document.querySelectorAll('details[name]'));
-    if (drawers.length && !('name' in document.createElement('details'))) {
-        drawers.forEach(function (d) {
-            d.addEventListener('toggle', function () {
-                if (!d.open) return;
-                drawers.forEach(function (other) {
-                    if (other !== d && other.name === d.name) other.open = false;
-                });
-            });
-        });
-    }
+    /* Drawers open and close on their own and stay open together:
+       somebody comparing the .deb instructions with the AppImage ones
+       should not have to keep one of them shut. */
 
     /* A link to a drawer opens it. Landing on #d-appimage and finding
        everything shut is a dead end, and people do share these links. */

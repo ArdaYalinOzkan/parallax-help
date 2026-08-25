@@ -14,7 +14,7 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link rel="stylesheet"
         href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap">
-    <link rel="stylesheet" href="style.css?v=20260826a">
+    <link rel="stylesheet" href="style.css?v=20260826b">
 </head>
 
 <body>
@@ -57,10 +57,7 @@
             <section class="wrap" style="padding-block-start: 0;">
 
                 <div class="drawers">
-                    <!-- One at a time. The name attribute makes browsers do
-                         this on their own; the script below covers the ones
-                         that do not know it yet. -->
-                    <details class="drawer" name="setup" id="d-windows">
+                    <details class="drawer" id="d-windows">
                         <summary>
                             <span class="drawer__title" data-i18n="SET_WIN_T">Windows</span>
                             <span class="drawer__hint" data-i18n="SET_WIN_HINT">Parallax-Launcher-Setup.exe</span>
@@ -69,7 +66,7 @@
                             <ol class="steps">
                                 <li class="step" style="grid-template-columns: 1fr;">
                                     <div class="step__body">
-                                        <span class="step__n">1</span>
+                                        <span class="step__n">1.</span>
                                         <h3 data-i18n="SET_WIN_1_H">Open the file</h3>
                                         <p data-i18n="SET_WIN_1_P_html">It is in your Downloads folder, called something like
                                             <code>Parallax-Launcher-Setup-3.6.0.exe</code>. Double-click it.</p>
@@ -77,7 +74,7 @@
                                 </li>
                                 <li class="step" style="grid-template-columns: 1fr;">
                                     <div class="step__body">
-                                        <span class="step__n">2</span>
+                                        <span class="step__n">2.</span>
                                         <h3 data-i18n="SET_WIN_2_H">Let it run</h3>
                                         <p data-i18n="SET_WIN_2_P_html">Windows used to stop this with a blue box and no
                                             longer does, so in all likelihood nothing happens here at all.
@@ -86,7 +83,7 @@
                                 </li>
                                 <li class="step" style="grid-template-columns: 1fr;">
                                     <div class="step__body">
-                                        <span class="step__n">3</span>
+                                        <span class="step__n">3.</span>
                                         <h3 data-i18n="SET_WIN_3_H">Choose where it goes</h3>
                                         <p data-i18n="SET_WIN_3_P">The installer asks, rather than deciding for you. It installs
                                             for your account only, so it needs no administrator password. When it finishes
@@ -99,7 +96,7 @@
                         </div>
                     </details>
 
-                    <details class="drawer" name="setup" id="d-appimage">
+                    <details class="drawer" id="d-appimage">
                         <summary>
                             <span class="drawer__title" data-i18n="SET_APP_T">AppImage</span>
                             <span class="drawer__hint" data-i18n="SET_APP_HINT">Any Linux — nothing to install</span>
@@ -112,16 +109,16 @@
                             <ol class="steps">
                                 <li class="step" style="grid-template-columns: 1fr;">
                                     <div class="step__body">
-                                        <span class="step__n">1</span>
+                                        <span class="step__n">1.</span>
                                         <h3 data-i18n="SET_APP_1_H">Put it somewhere it can stay</h3>
-                                        <p data-i18n="SET_APP_1_P_html">Downloads is a folder people empty.
-                                            <code>~/.local/bin</code> or <code>~/Applications</code> is a kinder home for
-                                            something you intend to keep.</p>
+                                        <p data-i18n="SET_APP_1_P_html">The downloads folder is often cleared out. For a
+                                            file you intend to keep, <code>~/.local/bin</code> or
+                                            <code>~/Applications</code> is a better place.</p>
                                     </div>
                                 </li>
                                 <li class="step" style="grid-template-columns: 1fr;">
                                     <div class="step__body">
-                                        <span class="step__n">2</span>
+                                        <span class="step__n">2.</span>
                                         <h3 data-i18n="SET_APP_2_H">Allow it to run</h3>
                                         <p data-i18n="SET_APP_2_P">Linux does not let a freshly downloaded file execute until you
                                             say so. In a file manager this is a checkbox in Properties; in a terminal it is one
@@ -134,7 +131,7 @@
                                 </li>
                                 <li class="step" style="grid-template-columns: 1fr;">
                                     <div class="step__body">
-                                        <span class="step__n">3</span>
+                                        <span class="step__n">3.</span>
                                         <h3 data-i18n="SET_APP_3_H">Run it</h3>
                                         <p data-i18n="SET_APP_3_P">Double-click, or run it from the terminal. The first time it
                                             starts it adds itself to your application menu, so afterwards you can find it the
@@ -147,7 +144,7 @@
                         </div>
                     </details>
 
-                    <details class="drawer" name="setup" id="d-deb">
+                    <details class="drawer" id="d-deb">
                         <summary>
                             <span class="drawer__title" data-i18n="SET_DEB_T">.deb</span>
                             <span class="drawer__hint" data-i18n="SET_DEB_HINT">Debian, Ubuntu, Mint, Pop!_OS</span>
@@ -204,9 +201,9 @@ sudo apt update && sudo apt install parallax-launcher</code></pre>
         </footer>
     </div>
 
-    <script src="i18n.js?v=20260826a"></script>
-    <script src="site.js?v=20260826a"></script>
-    <script src="help.js?v=20260826a"></script>
+    <script src="i18n.js?v=20260826b"></script>
+    <script src="site.js?v=20260826b"></script>
+    <script src="help.js?v=20260826b"></script>
 </body>
 
 </html>
