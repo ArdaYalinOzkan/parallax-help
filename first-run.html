@@ -46,11 +46,12 @@
 
         <main>
             <section class="hero wrap" style="padding-block-end: clamp(20px, 3vh, 32px);">
-                <p class="label rise rise--1" data-i18n="FR_KICKER">First run</p>
-                <h1 class="rise rise--2" style="max-width: 16ch;" data-i18n="FR_H1">The first ten minutes.</h1>
+                <p class="label rise rise--1" data-i18n="FR_KICKER">First use</p>
+                <h1 class="rise rise--2" style="max-width: 16ch;" data-i18n="FR_H1">Setting up for the first time</h1>
                 <p class="lede rise rise--3" style="max-width: 58ch;" data-i18n="FR_LEDE">
-                    What to do when you open Parallax for the first time: create an account,
-                    import your library, add games and arrange them.
+                    This page describes what to do when you open Parallax for the first time:
+                    creating an account, importing your library, adding games and arranging the
+                    library view.
                 </p>
             </section>
 
@@ -60,68 +61,88 @@
                     <li class="step" style="grid-template-columns: 1fr;">
                         <div class="step__body">
                             <span class="step__n">1.</span>
-                            <h3 data-i18n="FR_1_H">Make an account</h3>
-                            <p data-i18n="FR_1_P">This is a name for the library, kept on this machine. It is not an
-                                account with any service: nothing is sent anywhere, and there is no password unless you
-                                set one. Two people sharing a computer can keep separate libraries.</p>
+                            <h3 data-i18n="FR_1_H">Create an account</h3>
+                            <p data-i18n="FR_1_P">
+                                An account is a name for the library and is stored on this
+                                computer. It is not an account with any online service: no data
+                                is sent anywhere, and there is no password unless you set one.
+                                Two people who share a computer can keep separate libraries.
+                            </p>
                         </div>
                     </li>
 
                     <li class="step" style="grid-template-columns: 1fr;">
                         <div class="step__body">
                             <span class="step__n">2.</span>
-                            <h3 data-i18n="FR_2_H">Bring in your Steam games</h3>
-                            <p data-i18n="FR_2_P_html">Paste your Steam profile link, or just your Steam name, and
-                                Parallax fetches everything you own. It needs your profile to be public — Steam hides game
-                                lists by default, and a private one comes back empty rather than with an error worth
-                                reading.</p>
-                            <p data-i18n="FR_2_P2">Cover art and banners are fetched at the same time. A large library
-                                takes a few minutes; you can use the app while it works.</p>
+                            <h3 data-i18n="FR_2_H">Import your Steam library</h3>
+                            <p data-i18n="FR_2_P_html">
+                                Enter your Steam profile link or your Steam user name. Parallax
+                                then imports the games on your account. Your Steam profile must
+                                be public: game lists are private by default, and a private
+                                profile returns an empty list rather than an error message.
+                            </p>
+                            <p data-i18n="FR_2_P2">
+                                Cover images and banners are downloaded at the same time. A
+                                large library takes a few minutes, and you can continue using
+                                the program while this runs.
+                            </p>
                         </div>
                     </li>
 
                     <li class="step" style="grid-template-columns: 1fr;">
                         <div class="step__body">
                             <span class="step__n">3.</span>
-                            <h3 data-i18n="FR_3_H">Add what Steam does not know about</h3>
-                            <p data-i18n="FR_3_P">Games from Epic, GOG, the Xbox app, an emulator, or something you
-                                compiled yourself. Type the name and Parallax looks for it on your disk — Steam's own
-                                records first, then the folders games are usually kept in, on every drive.</p>
-                            <p data-i18n="FR_3_P2">If it finds it, the location is filled in for you. If it does not, it
-                                asks you to point at the file rather than guessing.</p>
+                            <h3 data-i18n="FR_3_H">Add games from other sources</h3>
+                            <p data-i18n="FR_3_P">
+                                Games from Epic, GOG, the Xbox app, emulators or your own builds
+                                can be added manually. Enter the name of the game and Parallax
+                                searches your drives for it, starting with Steam's own records
+                                and then the folders where games are normally installed.
+                            </p>
+                            <p data-i18n="FR_3_P2">
+                                If the game is found, its location is filled in automatically.
+                                If it is not found, you are asked to select the file yourself.
+                            </p>
                         </div>
                     </li>
 
                     <li class="step" style="grid-template-columns: 1fr;">
                         <div class="step__body">
                             <span class="step__n">4.</span>
-                            <h3 data-i18n="FR_4_H">Arrange the shelf</h3>
-                            <p data-i18n="FR_4_P_html">Sort by name, by hours played, or by the dominant colour of the
-                                cover art. The last is useful in a large library, where a game is often easier to
-                                recognise by sight than by title.</p>
-                            <p data-i18n="FR_4_P2">Filters narrow it to what is installed, or to one platform. The
-                                setting sticks, so the shelf looks the way you left it.</p>
+                            <h3 data-i18n="FR_4_H">Arrange the library view</h3>
+                            <p data-i18n="FR_4_P_html">
+                                Games can be sorted by name, by hours played or by the dominant
+                                colour of the cover image. Sorting by colour is useful in a
+                                large library, where a game is often easier to recognise by its
+                                cover than by its title.
+                            </p>
+                            <p data-i18n="FR_4_P2">
+                                Filters limit the view to installed games or to a single
+                                platform. The setting is remembered between sessions.
+                            </p>
                         </div>
                     </li>
                 </ol>
 
-                <h2 style="margin-top: 44px;" data-i18n="FR_PLAY_H">Then press Play</h2>
+                <h2 style="margin-top: 44px;" data-i18n="FR_PLAY_H">Starting a game</h2>
                 <p style="max-width: 62ch;" data-i18n="FR_PLAY_P">
-                    A Steam game is started through Steam, which handles Proton, cloud saves and
-                    the overlay. Anything else Parallax runs itself, on Linux through Proton or
-                    Wine when the game is a Windows one. Hours are counted either way, and a game
-                    you have not installed offers to find or fetch it rather than doing nothing.
+                    Steam games are started through Steam, which handles Proton, cloud saves and
+                    the overlay. Other games are started by Parallax directly, using Proton or
+                    Wine on Linux when the game is built for Windows. Play time is recorded in
+                    both cases. If a game is not installed, Parallax offers to locate or
+                    download it.
                 </p>
 
                 <p class="note" style="max-width: 62ch;" data-i18n="FR_PROPS_P_html">
-                    Every game has a <strong>Properties</strong> panel for the settings that decide
-                    how it starts: the Proton build, launch options and environment variables. Left
-                    alone, it chooses sensible defaults, and most games never need anything else.
+                    Each game has a <strong>Properties</strong> panel containing the settings
+                    that determine how it starts: the Proton version, launch options and
+                    environment variables. Default values are used unless you change them, and
+                    most games require no changes.
                 </p>
 
                 <p style="margin-top: 34px; font-size: .86rem; color: var(--star-faint);" data-i18n="FR_NEXT_html">
-                    Something not behaving? <a href="trouble.html">The troubleshooting guide</a> covers what goes wrong
-                    most often.
+                    If something does not work as described, see <a
+                    href="trouble.html">Troubleshooting</a>.
                 </p>
             </section>
         </main>

@@ -46,11 +46,11 @@
 
         <main>
             <section class="hero wrap" style="padding-block-end: clamp(20px, 3vh, 32px);">
-                <p class="label rise rise--1" data-i18n="SET_KICKER">Installing</p>
-                <h1 class="rise rise--2" style="max-width: 17ch;" data-i18n="SET_H1">You have the file. Here is the rest.</h1>
+                <p class="label rise rise--1" data-i18n="SET_KICKER">Installation</p>
+                <h1 class="rise rise--2" style="max-width: 17ch;" data-i18n="SET_H1">Installation</h1>
                 <p class="lede rise rise--3" style="max-width: 58ch;" data-i18n="SET_LEDE">
-                    Installation steps for each package type. Open the section that matches the
-                    file you downloaded.
+                    This page describes the installation steps for each package type. Open the
+                    section that matches the file you downloaded.
                 </p>
             </section>
 
@@ -68,61 +68,82 @@
                                     <div class="step__body">
                                         <span class="step__n">1.</span>
                                         <h3 data-i18n="SET_WIN_1_H">Open the file</h3>
-                                        <p data-i18n="SET_WIN_1_P_html">It is in your Downloads folder, called something like
-                                            <code>Parallax-Launcher-Setup-3.6.0.exe</code>. Double-click it.</p>
+                                        <p data-i18n="SET_WIN_1_P_html">
+                                            The file is in your downloads folder and is named
+                                            <code>Parallax-Launcher-Setup-3.7.0.exe</code> or
+                                            similar. Double-click it to start the installer.
+                                        </p>
                                     </div>
                                 </li>
                                 <li class="step" style="grid-template-columns: 1fr;">
                                     <div class="step__body">
                                         <span class="step__n">2.</span>
-                                        <h3 data-i18n="SET_WIN_2_H">Let it run</h3>
-                                        <p data-i18n="SET_WIN_2_P_html">Windows used to stop this with a blue box and no
-                                            longer does, so in all likelihood nothing happens here at all.
-                                            <a href="windows.html">If it does say something</a>.</p>
+                                        <h3 data-i18n="SET_WIN_2_H">Allow it to run</h3>
+                                        <p data-i18n="SET_WIN_2_P_html">
+                                            Windows previously blocked this file with a security
+                                            warning. It no longer does, so in most cases nothing
+                                            further is required. If a warning does appear, see
+                                            <a href="windows.html">Windows security
+                                            warnings</a>.
+                                        </p>
                                     </div>
                                 </li>
                                 <li class="step" style="grid-template-columns: 1fr;">
                                     <div class="step__body">
                                         <span class="step__n">3.</span>
-                                        <h3 data-i18n="SET_WIN_3_H">Choose where it goes</h3>
-                                        <p data-i18n="SET_WIN_3_P">The installer asks, rather than deciding for you. It installs
-                                            for your account only, so it needs no administrator password. When it finishes
-                                            Parallax is in the Start menu.</p>
+                                        <h3 data-i18n="SET_WIN_3_H">Choose the installation location</h3>
+                                        <p data-i18n="SET_WIN_3_P">
+                                            You select where the program is installed. Parallax
+                                            is installed for your user account only and does not
+                                            require an administrator password. When installation
+                                            is complete, Parallax appears in the Start menu.
+                                        </p>
                                     </div>
                                 </li>
                             </ol>
-                            <p class="note" data-i18n="SET_WIN_NOTE">Updates arrive inside the app after this — it checks on its
-                                own and offers them.</p>
+                            <p class="note" data-i18n="SET_WIN_NOTE">
+                                Later updates are delivered through the program itself. Parallax
+                                checks for new versions and notifies you when one is available.
+                            </p>
                         </div>
                     </details>
 
                     <details class="drawer" id="d-appimage">
                         <summary>
                             <span class="drawer__title" data-i18n="SET_APP_T">AppImage</span>
-                            <span class="drawer__hint" data-i18n="SET_APP_HINT">Any Linux — nothing to install</span>
+                            <span class="drawer__hint" data-i18n="SET_APP_HINT">Any Linux distribution</span>
                         </summary>
                         <div class="drawer__body">
-                            <p data-i18n="SET_APP_INTRO">An AppImage is the whole program in one file. Nothing is installed and
-                                nothing is scattered around your system; you keep the file wherever you like and delete it when
-                                you are done.</p>
+                            <p data-i18n="SET_APP_INTRO">
+                                An AppImage contains the entire program in a single file.
+                                Nothing is installed and no files are placed elsewhere on the
+                                system. You keep the file wherever you prefer and delete it when
+                                it is no longer needed.
+                            </p>
 
                             <ol class="steps">
                                 <li class="step" style="grid-template-columns: 1fr;">
                                     <div class="step__body">
                                         <span class="step__n">1.</span>
-                                        <h3 data-i18n="SET_APP_1_H">Put it somewhere it can stay</h3>
-                                        <p data-i18n="SET_APP_1_P_html">The downloads folder is often cleared out. For a
-                                            file you intend to keep, <code>~/.local/bin</code> or
-                                            <code>~/Applications</code> is a better place.</p>
+                                        <h3 data-i18n="SET_APP_1_H">Move the file to a permanent location</h3>
+                                        <p data-i18n="SET_APP_1_P_html">
+                                            The downloads folder is often cleared. For a file
+                                            you intend to keep, <code>~/.local/bin</code> or
+                                            <code>~/Applications</code> is a more suitable
+                                            location.
+                                        </p>
                                     </div>
                                 </li>
                                 <li class="step" style="grid-template-columns: 1fr;">
                                     <div class="step__body">
                                         <span class="step__n">2.</span>
-                                        <h3 data-i18n="SET_APP_2_H">Allow it to run</h3>
-                                        <p data-i18n="SET_APP_2_P">Linux does not let a freshly downloaded file execute until you
-                                            say so. In a file manager this is a checkbox in Properties; in a terminal it is one
-                                            line:</p>
+                                        <h3 data-i18n="SET_APP_2_H">Make the file executable</h3>
+                                        <p data-i18n="SET_APP_2_P">
+                                            Linux does not allow a newly downloaded file to run
+                                            until you permit it. In a file manager this is a
+                                            checkbox in the file properties. In a terminal it is
+                                            a single command:
+                                        </p>
                                         <div class="snippet">
                                             <button class="snippet__copy" type="button" data-copy data-i18n="COPY">Copy</button>
                                             <pre><code>chmod +x Parallax-Launcher.AppImage</code></pre>
@@ -132,15 +153,21 @@
                                 <li class="step" style="grid-template-columns: 1fr;">
                                     <div class="step__body">
                                         <span class="step__n">3.</span>
-                                        <h3 data-i18n="SET_APP_3_H">Run it</h3>
-                                        <p data-i18n="SET_APP_3_P">Double-click, or run it from the terminal. The first time it
-                                            starts it adds itself to your application menu, so afterwards you can find it the
-                                            way you find anything else.</p>
+                                        <h3 data-i18n="SET_APP_3_H">Run the file</h3>
+                                        <p data-i18n="SET_APP_3_P">
+                                            Double-click the file or run it from a terminal. On
+                                            first launch Parallax adds an entry to your
+                                            application menu, and you can start it from there
+                                            afterwards.
+                                        </p>
                                     </div>
                                 </li>
                             </ol>
-                            <p class="note" data-i18n="SET_APP_NOTE_html">Updates: Parallax replaces its own file in place. If it
-                                ever will not start after an update, <a href="trouble.html">this is covered here</a>.</p>
+                            <p class="note" data-i18n="SET_APP_NOTE_html">
+                                Updates: Parallax replaces its own file in place. If the program
+                                does not start after an update, see <a
+                                href="trouble.html">Troubleshooting</a>.
+                            </p>
                         </div>
                     </details>
 
@@ -150,37 +177,47 @@
                             <span class="drawer__hint" data-i18n="SET_DEB_HINT">Debian, Ubuntu, Mint, Pop!_OS</span>
                         </summary>
                         <div class="drawer__body">
-                            <p data-i18n="SET_DEB_INTRO">Two ways. Installing the file gives you the program; adding the
-                                repository gives you the program and every update after it, through the same system that
-                                updates everything else on your machine.</p>
+                            <p data-i18n="SET_DEB_INTRO">
+                                There are two options. Installing the file gives you the
+                                program. Adding the repository gives you the program and all
+                                subsequent updates through the same system that updates the rest
+                                of your software.
+                            </p>
 
-                            <h3 style="margin-top: 26px;" data-i18n="SET_DEB_A_H">The file on its own</h3>
-                            <p data-i18n="SET_DEB_A_P">Double-click it, or:</p>
+                            <h3 style="margin-top: 26px;" data-i18n="SET_DEB_A_H">Installing the file only</h3>
+                            <p data-i18n="SET_DEB_A_P">Double-click the file, or run:</p>
                             <div class="snippet">
                                 <button class="snippet__copy" type="button" data-copy data-i18n="COPY">Copy</button>
                                 <pre><code>sudo apt install ./parallax-launcher_3.6.0_amd64.deb</code></pre>
                             </div>
-                            <p class="note" data-i18n="SET_DEB_A_NOTE">Installed this way, updates do not arrive on their own —
-                                the app will tell you when there is one, and you download the next file yourself.</p>
+                            <p class="note" data-i18n="SET_DEB_A_NOTE">
+                                With this method updates are not delivered automatically.
+                                Parallax notifies you when a new version is available, and you
+                                download the next file yourself.
+                            </p>
 
-                            <h3 style="margin-top: 30px;" data-i18n="SET_DEB_B_H">The repository, so updates keep coming</h3>
-                            <p data-i18n="SET_DEB_B_P">Three lines, once. After this Parallax updates with everything else when
-                                you run your usual upgrade.</p>
+                            <h3 style="margin-top: 30px;" data-i18n="SET_DEB_B_H">Adding the repository</h3>
+                            <p data-i18n="SET_DEB_B_P">
+                                Three commands, run once. Parallax is then updated together with
+                                your other software whenever you upgrade the system.
+                            </p>
                             <div class="snippet">
                                 <button class="snippet__copy" type="button" data-copy data-i18n="COPY">Copy</button>
                                 <pre><code>curl -fsSL https://apt.parallaxlauncher.com/key.gpg | sudo gpg --dearmor -o /usr/share/keyrings/parallax.gpg
 echo "deb [signed-by=/usr/share/keyrings/parallax.gpg] https://apt.parallaxlauncher.com stable main" | sudo tee /etc/apt/sources.list.d/parallax.list
 sudo apt update && sudo apt install parallax-launcher</code></pre>
                             </div>
-                            <p class="note" data-i18n="SET_DEB_B_NOTE">The key is what lets your system check that an update
-                                really came from this project. Without it apt refuses the repository, which is the correct thing
-                                for it to do.</p>
+                            <p class="note" data-i18n="SET_DEB_B_NOTE">
+                                The key allows your system to verify that an update genuinely
+                                comes from this project. Without it, apt refuses the repository.
+                            </p>
                         </div>
                     </details>
                 </div>
 
                 <p style="margin-top: 34px; font-size: .86rem; color: var(--star-faint);" data-i18n="SET_NEXT_html">
-                    Installed and wondering what to do first? <a href="first-run.html">Start here</a>.
+                    For what to do after installation, see <a href="first-run.html">Setting up
+                    for the first time</a>.
                 </p>
             </section>
         </main>
