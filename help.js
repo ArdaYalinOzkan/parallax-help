@@ -1,9 +1,9 @@
 /* ==============================================================
    The two things the guides do on their own
    ==============================================================
-   Copy buttons, and drawers that keep one open at a time. Both are
-   small enough that the pages would work without them — the code is
-   still selectable, the drawers still open — which is the level of
+   Copy buttons, drawers, and the tab title. All three are small
+   enough that the pages would work without them — the code is still
+   selectable, the drawers still open — which is the level of
    dependence a page of instructions ought to have on its script.
    ============================================================== */
 
@@ -14,6 +14,21 @@
        The clipboard needs a secure context, which the site has. Where
        it is refused anyway the button says so rather than pretending
        it worked, and the text is still there to select by hand. */
+
+    /* ---- the tab title -----------------------------------------
+       The heading is already written in every language; the title is
+       the same words. Taking it from the heading rather than from a
+       key of its own means a page can never be renamed in one place
+       and not the other, and adds no strings to translate. */
+
+    function basligiYaz() {
+        var h1 = document.querySelector('h1[data-i18n]');
+        var metin = h1 && h1.textContent.trim();
+        if (metin) document.title = metin + ' — Parallax Launcher';
+    }
+
+    basligiYaz();
+    document.addEventListener('parallax:lang', basligiYaz);
 
     function phrase(key, fallback) {
         if (window.parallaxI18n && typeof window.parallaxI18n.t === 'function') {

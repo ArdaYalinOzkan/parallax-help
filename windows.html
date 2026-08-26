@@ -1,0 +1,162 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Windows security warnings — Parallax Launcher</title>
+    <meta name="description" content="What the SmartScreen warning means, how to continue past it, and how to verify a downloaded file against its published build record.">
+    <meta name="theme-color" content="#05060A">
+    <link rel="icon" href="favicon.svg" type="image/svg+xml">
+    <link rel="alternate icon" href="favicon.ico" sizes="any">
+    <link rel="apple-touch-icon" href="apple-touch-icon.png" sizes="180x180">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="stylesheet"
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap">
+    <link rel="stylesheet" href="style.css?v=20260826d">
+</head>
+
+<body>
+    <div class="sky" aria-hidden="true">
+        <div class="sky__layer sky__haze"></div>
+        <div class="sky__layer" id="skyFar"></div>
+        <div class="sky__layer" id="skyNear"></div>
+        <div class="sky__grain" id="skyGrain"></div>
+    </div>
+
+    <div class="page">
+        <header class="top">
+            <div class="wrap top__in">
+                <a class="brand" href="https://parallaxlauncher.com/">
+                    <svg viewBox="0 0 100 100" fill="none" aria-hidden="true">
+                        <path d="M50.00 15.00 L32.68 25.00 L32.68 45.00 L50.00 55.00 L67.32 45.00 L67.32 25.00 Z" stroke="#EEF1F6" stroke-width="5" />
+                        <path d="M32.68 45.00 L15.36 55.00 L15.36 75.00 L32.68 85.00 L50.00 75.00 L50.00 55.00 Z" stroke="#EEF1F6" stroke-width="5" />
+                        <path d="M67.32 45.00 L50.00 55.00 L50.00 75.00 L67.32 85.00 L84.64 75.00 L84.64 55.00 Z" stroke="#EEF1F6" stroke-width="5" />
+                    </svg>
+                    <span>Parallax</span>
+                </a>
+                <nav class="top__links">
+                    <a href="index.html" data-i18n="NAV_GUIDES">All guides</a>
+                    <a href="https://github.com/ArdaYalinOzkan/parallax-launcher" data-i18n="NAV_SOURCE">Source</a>
+                    <span class="langpick__slot" data-lang-mount></span>
+                </nav>
+            </div>
+        </header>
+
+        <main>
+            <section class="hero wrap" style="padding-block-end: clamp(20px, 3vh, 32px);">
+                <p class="label rise rise--1" data-i18n="WIN_KICKER">Windows</p>
+                <h1 class="rise rise--2" style="max-width: 16ch;" data-i18n="WIN_H1">Windows security warnings</h1>
+                <p class="lede rise rise--3" style="max-width: 58ch;" data-i18n="WIN_LEDE">
+                    This page explains why Windows used to block the installer, what to do if a
+                    warning still appears, and how to verify that the file you downloaded came
+                    from this project.
+                </p>
+            </section>
+
+            <section class="wrap" style="padding-block-start: 0;">
+
+                <h2 data-i18n="WIN_WHY_H">Why the warning no longer appears</h2>
+                <p style="max-width: 62ch;" data-i18n="WIN_WHY_P">
+                    Windows blocks programs it has not seen before through a feature called
+                    SmartScreen. As a file is downloaded and run by more people without
+                    incident, it is recorded as trusted. The Parallax installer has reached that
+                    point, so the warning is no longer shown.
+                </p>
+                <p class="note" style="max-width: 62ch;" data-i18n="WIN_WHY_NOTE">
+                    This status applies to the installer file itself rather than to a
+                    certificate. A newly released version may therefore be treated as unknown
+                    again for a period, until it has been downloaded a sufficient number of
+                    times.
+                </p>
+
+                <h2 style="margin-top: 44px;" data-i18n="WIN_IF_H">If a warning does appear</h2>
+                <p style="max-width: 62ch;" data-i18n="WIN_IF_P_html">
+                    The warning is a blue window titled <em>Windows protected your PC</em>, with
+                    a single visible button labelled <em>Don't run</em>. The option to continue
+                    is behind the small link above it.
+                </p>
+
+                <ol class="steps" style="margin-top: 18px;">
+                    <li class="step" style="grid-template-columns: 1fr;">
+                        <div class="step__body">
+                            <span class="step__n">1.</span>
+                            <h3 data-i18n="WIN_SS_1_H">Select More info</h3>
+                            <p data-i18n="WIN_SS_1_P">
+                                This is the underlined text above the button. Selecting it
+                                expands the window and displays the publisher line.
+                            </p>
+                        </div>
+                    </li>
+                    <li class="step" style="grid-template-columns: 1fr;">
+                        <div class="step__body">
+                            <span class="step__n">2.</span>
+                            <h3 data-i18n="WIN_SS_2_H">Select Run anyway</h3>
+                            <p data-i18n="WIN_SS_2_P">
+                                A second button appears below. The installer then opens
+                                normally, and Windows does not ask about this file again.
+                            </p>
+                        </div>
+                    </li>
+                </ol>
+
+                <h2 id="verify" style="margin-top: 48px;" data-i18n="WIN_VER_H">Verifying the file</h2>
+                <p style="max-width: 62ch;" data-i18n="WIN_VER_P_html">
+                    Every release is built publicly on GitHub's servers from the source code in
+                    the repository, and each file includes a signed statement identifying the
+                    commit it was built from. If you have the <a
+                    href="https://cli.github.com/">GitHub CLI</a> installed:
+                </p>
+
+                <div class="repo" style="margin-top: 18px;">
+                    <div class="repo__head">
+                        <span class="label" style="margin: 0;" data-i18n="WIN_VER_LBL1">Verify the origin of the file</span>
+                        <button class="copy" data-copy data-i18n="COPY">Copy</button>
+                    </div>
+<pre><code>gh attestation verify "Parallax-Launcher-Setup-3.6.0.exe" --owner ArdaYalinOzkan</code></pre>
+                </div>
+
+                <p style="max-width: 62ch; margin-top: 22px;" data-i18n="WIN_VER_P2">
+                    Alternatively, compare the checksum of the file with the one published by
+                    the build:
+                </p>
+
+                <div class="repo" style="margin-top: 16px;">
+                    <div class="repo__head">
+                        <span class="label" style="margin: 0;" data-i18n="WIN_VER_LBL2">In PowerShell</span>
+                        <button class="copy" data-copy data-i18n="COPY">Copy</button>
+                    </div>
+<pre><code>Get-FileHash .\Parallax-Launcher-Setup-3.6.0.exe -Algorithm SHA512</code></pre>
+                    <p style="font-size: .84rem; color: var(--star-dim); margin: 14px 0 0;" data-i18n="WIN_VER_NOTE_html">
+                        Compare the result with the <code>sha512</code> value in <a
+                        href="https://github.com/ArdaYalinOzkan/parallax-launcher/releases/latest">latest.yml</a>
+                        on the release page. That file is produced by the build, and the
+                        complete build log is public.
+                    </p>
+                </div>
+            </section>
+        </main>
+
+        <footer class="foot">
+            <div class="wrap foot__in">
+                <div data-i18n="FOOT_BY_html">
+                    Parallax Launcher — created by Arda Yalın Özkan.<br>
+                    Free software under the
+                    <a href="https://github.com/ArdaYalinOzkan/parallax-launcher/blob/main/LICENSE">GNU GPL v3</a>.
+                </div>
+                <div>
+                    <a href="index.html" data-i18n="FOOT_GUIDES">All guides</a> ·
+                    <a href="https://github.com/ArdaYalinOzkan/parallax-launcher" data-i18n="FOOT_SOURCE">Source</a> ·
+                    <a href="https://github.com/ArdaYalinOzkan/parallax-launcher/releases" data-i18n="FOOT_RELEASES">Releases</a>
+                </div>
+            </div>
+        </footer>
+    </div>
+
+    <script src="i18n.js?v=20260826d"></script>
+    <script src="site.js?v=20260826d"></script>
+    <script src="help.js?v=20260826d"></script>
+</body>
+
+</html>

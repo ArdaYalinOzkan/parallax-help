@@ -93,6 +93,15 @@
         document.body.appendChild(frame);
     }
 
+    /* The tab title follows the heading, which this page writes from
+       script rather than from the markup — so it is set here rather
+       than by the shared helper the other pages use. */
+    function basligiYaz() {
+        const h1 = el('dlHeading');
+        const metin = h1 && h1.textContent.trim();
+        if (metin) document.title = metin + ' — Parallax Launcher';
+    }
+
     /* Redrawn whenever the language changes, since these lines are
        written here rather than carried by the page. */
     function paint() {
@@ -100,11 +109,12 @@
 
         if (!asset) {
             setText('dlEyebrow', t('INS_LBL', 'Download'));
-            setText('dlHeading', t('INS_NO_ASSET_H', 'Pick your file.'));
+            setText('dlHeading', t('INS_NO_ASSET_H', 'Choose a file'));
             setText('dlLede', t('INS_NO_ASSET_P', 'The download could not be started ' +
-                'automatically. The button below opens the releases page, where every file ' +
-                'for every system is listed.'));
+                'automatically. The button below opens the releases page, which lists every ' +
+                'file for every system.'));
             setText('dlManualLabel', t('INS_OPEN_RELEASES', 'Open the releases page'));
+            basligiYaz();
             return;
         }
 
@@ -117,24 +127,29 @@
             // file is identified and one click away, and nothing has
             // been fetched.
             setText('dlEyebrow', version ? 'v' + version : t('INS_LBL', 'Download'));
-            setText('dlHeading', t('INS_GUIDE_H', 'Downloading and installing.'));
+            setText('dlHeading', t('INS_GUIDE_H', 'Downloading and installing'));
             setText('dlLede', asset.name + ' — ' + MB(asset.size) + '. ' +
-                t('INS_GUIDE_P', 'The button below starts the download; the steps after it are ' +
-                    'what to do once the file arrives.'));
-            setText('dlManualLabel', t('INS_START', 'Download now'));
+                t('INS_GUIDE_P', 'The button below starts the download. The steps that follow ' +
+                    'explain what to do once the file has arrived.'));
+            setText('dlManualLabel', t('INS_START', 'Start the download'));
+            basligiYaz();
             return;
         }
 
-        setText('dlEyebrow', version ? t('INS_LBL', 'Downloading') + ' v' + version : t('INS_LBL', 'Downloading'));
+        // Its own key rather than the plain label: the eyebrow reads as
+        // a state here, and one word cannot be both in every language.
+        const surer = t('INS_DOWNLOADING', 'Downloading');
+        setText('dlEyebrow', version ? surer + ' v' + version : surer);
         setText('dlHeading', platform === 'windows'
-            ? t('INS_H_WIN', 'Your installer is downloading.')
-            : t('INS_H_LNX', 'Your AppImage is downloading.'));
+            ? t('INS_H_WIN', 'The installer is downloading')
+            : t('INS_H_LNX', 'The AppImage is downloading'));
         setText('dlLede', asset.name + ' — ' + MB(asset.size) + '. ' +
-            t('INS_STARTED_P', 'It should begin on its own in a moment; if it does not, the ' +
-                'button below starts it.'));
+            t('INS_STARTED_P', 'The download should begin shortly. If it does not, use the ' +
+                'button below.'));
         // Every branch sets this, so none of them can leave another
         // branch's wording behind.
-        setText('dlManualLabel', t('INS_MANUAL', "Download didn't start? Click here"));
+        setText('dlManualLabel', t('INS_MANUAL', 'Download manually'));
+        basligiYaz();
     }
 
     document.addEventListener('parallax:lang', paint);

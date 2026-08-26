@@ -1,0 +1,178 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Your download is starting — Parallax Launcher</title>
+    <meta name="description" content="The download has begun. What to do with the file once it has finished.">
+    <meta name="theme-color" content="#05060A">
+    <link rel="icon" href="favicon.svg" type="image/svg+xml">
+    <link rel="alternate icon" href="favicon.ico" sizes="any">
+    <link rel="apple-touch-icon" href="apple-touch-icon.png" sizes="180x180">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="stylesheet"
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap">
+    <link rel="stylesheet" href="style.css?v=20260826d">
+</head>
+
+<body>
+    <div class="sky" aria-hidden="true">
+        <div class="sky__layer sky__haze"></div>
+        <div class="sky__layer" id="skyFar"></div>
+        <div class="sky__layer" id="skyNear"></div>
+        <div class="sky__grain" id="skyGrain"></div>
+    </div>
+
+    <div class="page">
+        <header class="top">
+            <div class="wrap top__in">
+                <a class="brand" href="https://parallaxlauncher.com/">
+                    <svg viewBox="0 0 100 100" fill="none" aria-hidden="true">
+                        <path d="M50.00 15.00 L32.68 25.00 L32.68 45.00 L50.00 55.00 L67.32 45.00 L67.32 25.00 Z" stroke="#EEF1F6" stroke-width="5" />
+                        <path d="M32.68 45.00 L15.36 55.00 L15.36 75.00 L32.68 85.00 L50.00 75.00 L50.00 55.00 Z" stroke="#EEF1F6" stroke-width="5" />
+                        <path d="M67.32 45.00 L50.00 55.00 L50.00 75.00 L67.32 85.00 L84.64 75.00 L84.64 55.00 Z" stroke="#EEF1F6" stroke-width="5" />
+                    </svg>
+                    <span>Parallax</span>
+                </a>
+                <nav class="top__links">
+                    <a href="./" data-i18n="NAV_GUIDES">All guides</a>
+                    <a href="https://github.com/ArdaYalinOzkan/parallax-launcher" data-i18n="NAV_SOURCE">Source</a>
+                    <span class="langpick__slot" data-lang-mount></span>
+                </nav>
+            </div>
+        </header>
+
+        <main>
+            <section class="hero wrap" style="padding-block-end: clamp(26px, 4vh, 44px);">
+                <svg class="hero__mark rise rise--1" viewBox="0 0 100 100" fill="none" aria-hidden="true">
+                    <g stroke="#FFFFFF" stroke-width="6" stroke-linejoin="round">
+                        <path d="M50.00 15.00 L32.68 25.00 L32.68 45.00 L50.00 55.00 L67.32 45.00 L67.32 25.00 Z"/>
+                        <path d="M32.68 45.00 L15.36 55.00 L15.36 75.00 L32.68 85.00 L50.00 75.00 L50.00 55.00 Z"/>
+                        <path d="M67.32 45.00 L50.00 55.00 L50.00 75.00 L67.32 85.00 L84.64 75.00 L84.64 55.00 Z"/>
+                    </g>
+                </svg>
+                <span class="label rise rise--1" id="dlEyebrow" data-i18n="INS_LBL">Download</span>
+                <h1 class="rise rise--2" style="max-width: 16ch;" id="dlHeading" data-i18n="INS_H1">Your download is starting</h1>
+                <p class="lede rise rise--3" style="max-width: 56ch;" id="dlLede" data-i18n="INS_LEDE">
+                    If the download does not begin automatically, use the link below. The
+                    installation steps for your system follow.
+                </p>
+
+                <div class="hero__actions rise rise--4">
+                    <a class="btn btn--primary" id="dlManual" href="https://github.com/ArdaYalinOzkan/parallax-launcher/releases/latest">
+                        <span id="dlManualLabel" data-i18n="INS_MANUAL">Download manually</span>
+                        <span class="btn__meta" id="dlManualMeta"></span>
+                    </a>
+                    <a class="btn btn--ghost" href="https://parallaxlauncher.com/#get" data-i18n="INS_ALLFILES">All files</a>
+                </div>
+            </section>
+
+            <!-- Only the panel for the system the visitor is on is shown;
+                 the others are here for anyone who arrives by link. -->
+            <section class="wrap" style="padding-block-start: 0;" id="stepsSection">
+                <div id="stepsWindows" class="platform-steps hidden">
+                    <span class="label" data-i18n="INS_WIN_LBL">Windows</span>
+                    <h2 data-i18n="INS_WIN_H2">Running the installer</h2>
+                    <ol class="steps">
+                        <li class="step" style="grid-template-columns: 1fr;">
+                            <div class="step__body">
+                                <span class="step__n">1.</span>
+                                <h3 data-i18n="INS_W1_H">Open the downloaded file</h3>
+                                <p data-i18n="INS_W1_P_html">
+                                    The file is named <code>Parallax-Launcher-Setup.exe</code>
+                                    and is usually in your downloads folder.
+                                </p>
+                            </div>
+                        </li>
+                        <li class="step" style="grid-template-columns: 1fr;">
+                            <div class="step__body">
+                                <span class="step__n">2.</span>
+                                <h3 data-i18n="INS_W2_H">Allow it to run</h3>
+                                <p data-i18n="INS_W2_P_html">
+                                    Windows previously blocked this file with a security warning
+                                    and no longer does, so in most cases nothing further is
+                                    required. <a href="windows.html">If a warning does
+                                    appear</a>.
+                                </p>
+                            </div>
+                        </li>
+                        <li class="step" style="grid-template-columns: 1fr;">
+                            <div class="step__body">
+                                <span class="step__n">3.</span>
+                                <h3 data-i18n="INS_W3_H">Choose the installation location</h3>
+                                <p data-i18n="INS_W3_P">
+                                    The installer asks where to install the program and creates
+                                    the shortcuts. Parallax is installed for your user account
+                                    only and does not require an administrator password.
+                                </p>
+                            </div>
+                        </li>
+                    </ol>
+                </div>
+
+                <div id="stepsLinux" class="platform-steps hidden">
+                    <span class="label" data-i18n="INS_LNX_LBL">Linux</span>
+                    <h2 data-i18n="INS_LNX_H2">Running the AppImage</h2>
+                    <ol class="steps">
+                        <li class="step" style="grid-template-columns: 1fr;">
+                            <div class="step__body">
+                                <span class="step__n">1.</span>
+                                <h3 data-i18n="INS_L1_H">Make the file executable</h3>
+                                <p data-i18n="INS_L1_P_html">
+                                    Downloaded files are not executable by default. In a file
+                                    manager this is a checkbox in the file properties; in a
+                                    terminal it is a single command.
+                                </p>
+<pre style="margin-top: 10px;"><code>chmod +x Parallax-Launcher-*.AppImage</code></pre>
+                            </div>
+                        </li>
+                        <li class="step" style="grid-template-columns: 1fr;">
+                            <div class="step__body">
+                                <span class="step__n">2.</span>
+                                <h3 data-i18n="INS_L2_H">Run the file</h3>
+                                <p data-i18n="INS_L2_P">
+                                    Double-click the file or run it from a terminal. Parallax
+                                    adds an entry to your application menu on first launch.
+                                </p>
+                            </div>
+                        </li>
+                        <li class="step" style="grid-template-columns: 1fr;">
+                            <div class="step__body">
+                                <span class="step__n">3.</span>
+                                <h3 data-i18n="INS_L3_H">Keep it somewhere permanent</h3>
+                                <p data-i18n="INS_L3_P_html">
+                                    The downloads folder is often cleared. For a file you intend
+                                    to keep, <code>~/.local/bin</code> or
+                                    <code>~/Applications</code> is a more suitable location.
+                                </p>
+                            </div>
+                        </li>
+                    </ol>
+                </div>
+            </section>
+        </main>
+
+        <footer class="foot">
+            <div class="wrap foot__in">
+                <div data-i18n="FOOT_BY_html">
+                    Parallax Launcher — created by Arda Yalın Özkan.<br>
+                    Free software under the
+                    <a href="https://github.com/ArdaYalinOzkan/parallax-launcher/blob/main/LICENSE">GNU GPL v3</a>.
+                </div>
+                <div>
+                    <a href="./" data-i18n="FOOT_GUIDES">All guides</a> ·
+                    <a href="https://parallaxlauncher.com/" data-i18n="FOOT_HOME">Home</a> ·
+                    <a href="https://github.com/ArdaYalinOzkan/parallax-launcher/releases" data-i18n="FOOT_RELEASES">Releases</a>
+                </div>
+            </div>
+        </footer>
+    </div>
+
+    <script src="i18n.js?v=20260826d"></script>
+    <script src="site.js?v=20260826d"></script>
+    <script src="install.js?v=20260826d"></script>
+</body>
+
+</html>

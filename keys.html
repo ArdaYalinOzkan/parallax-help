@@ -1,0 +1,165 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>API keys — Parallax Launcher</title>
+    <meta name="description" content="Which features require an API key, which are included, and how to obtain a SteamGridDB key and enter it.">
+    <meta name="theme-color" content="#05060A">
+    <link rel="icon" href="favicon.svg" type="image/svg+xml">
+    <link rel="alternate icon" href="favicon.ico" sizes="any">
+    <link rel="apple-touch-icon" href="apple-touch-icon.png" sizes="180x180">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="stylesheet"
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap">
+    <link rel="stylesheet" href="style.css?v=20260826d">
+</head>
+
+<body>
+    <div class="sky" aria-hidden="true">
+        <div class="sky__layer sky__haze"></div>
+        <div class="sky__layer" id="skyFar"></div>
+        <div class="sky__layer" id="skyNear"></div>
+        <div class="sky__grain" id="skyGrain"></div>
+    </div>
+
+    <div class="page">
+        <header class="top">
+            <div class="wrap top__in">
+                <a class="brand" href="https://parallaxlauncher.com/">
+                    <svg viewBox="0 0 100 100" fill="none" aria-hidden="true">
+                        <path d="M50.00 15.00 L32.68 25.00 L32.68 45.00 L50.00 55.00 L67.32 45.00 L67.32 25.00 Z" stroke="#EEF1F6" stroke-width="5" />
+                        <path d="M32.68 45.00 L15.36 55.00 L15.36 75.00 L32.68 85.00 L50.00 75.00 L50.00 55.00 Z" stroke="#EEF1F6" stroke-width="5" />
+                        <path d="M67.32 45.00 L50.00 55.00 L50.00 75.00 L67.32 85.00 L84.64 75.00 L84.64 55.00 Z" stroke="#EEF1F6" stroke-width="5" />
+                    </svg>
+                    <span>Parallax</span>
+                </a>
+                <nav class="top__links">
+                    <a href="index.html" data-i18n="NAV_GUIDES">All guides</a>
+                    <a href="https://github.com/ArdaYalinOzkan/parallax-launcher" data-i18n="NAV_SOURCE">Source</a>
+                    <span class="langpick__slot" data-lang-mount></span>
+                </nav>
+            </div>
+        </header>
+
+        <main>
+            <section class="hero wrap" style="padding-block-end: clamp(20px, 3vh, 32px);">
+                <p class="label rise rise--1" data-i18n="KEY_KICKER">Settings</p>
+                <h1 class="rise rise--2" style="max-width: 18ch;" data-i18n="KEY_H1">API keys</h1>
+                <p class="lede rise rise--3" style="max-width: 58ch;" data-i18n="KEY_LEDE">
+                    This page explains which features require an API key, what the key provides
+                    and how to obtain one.
+                </p>
+            </section>
+
+            <section class="wrap" style="padding-block-start: 0;">
+
+                <div class="grid">
+                    <div class="cell">
+                        <span class="chip" data-i18n="KEY_NONE">No key required</span>
+                        <h3 data-i18n="KEY_C1_H">Detecting and starting games</h3>
+                        <p data-i18n="KEY_C1_P">
+                            Installed games are read from Steam's own records on your disk. Play
+                            time, compatibility settings and launching do not use an API.
+                        </p>
+                    </div>
+                    <div class="cell">
+                        <span class="chip" data-i18n="KEY_NONE">No key</span>
+                        <h3 data-i18n="KEY_C2_H">Searching for a game to add</h3>
+                        <p data-i18n="KEY_C2_P">
+                            The Steam store search returns any game sold there without requiring
+                            a key.
+                        </p>
+                    </div>
+                    <div class="cell">
+                        <span class="chip" data-i18n="KEY_BUILTIN">Included</span>
+                        <h3 data-i18n="KEY_C3_H">Importing a Steam library</h3>
+                        <p data-i18n="KEY_C3_P">
+                            This includes games you own but have not installed. A Steam key is
+                            included with the application, so the feature works immediately. The
+                            key is shared by all users, and Steam counts requests against it.
+                        </p>
+                    </div>
+                    <div class="cell">
+                        <span class="chip" data-i18n="KEY_YOURS">Key required</span>
+                        <h3 data-i18n="KEY_C4_H">Artwork for non-Steam games</h3>
+                        <p data-i18n="KEY_C4_P">
+                            SteamGridDB provides cover images for games Steam does not sell, and
+                            several alternatives per game where Steam provides one. No key for
+                            this service is included.
+                        </p>
+                    </div>
+                </div>
+
+                <h2 style="margin-top: 48px;" data-i18n="KEY_GET_H">Obtaining a key</h2>
+                <ol class="steps" style="margin-top: 18px;">
+                    <li class="step" style="grid-template-columns: 1fr;">
+                        <div class="step__body">
+                            <span class="step__n">1.</span>
+                            <h3 data-i18n="KEY_1_H">Sign in at steamgriddb.com</h3>
+                            <p data-i18n="KEY_1_P_html">
+                                Sign in with your Steam account. No registration form and no
+                                payment is required.
+                            </p>
+                        </div>
+                    </li>
+                    <li class="step" style="grid-template-columns: 1fr;">
+                        <div class="step__body">
+                            <span class="step__n">2.</span>
+                            <h3 data-i18n="KEY_2_H">Open the API page in your profile</h3>
+                            <p data-i18n="KEY_2_P_html">
+                                Go to <a
+                                href="https://www.steamgriddb.com/profile/preferences/api">steamgriddb.com/profile/preferences/api</a>,
+                                generate a key and copy it.
+                            </p>
+                        </div>
+                    </li>
+                    <li class="step" style="grid-template-columns: 1fr;">
+                        <div class="step__body">
+                            <span class="step__n">3.</span>
+                            <h3 data-i18n="KEY_3_H">Enter the key in Settings</h3>
+                            <p data-i18n="KEY_3_P">
+                                Open Settings, then API, and paste the key. It is stored in your
+                                own configuration folder and is sent only to SteamGridDB when
+                                artwork is requested.
+                            </p>
+                        </div>
+                    </li>
+                </ol>
+
+                <h2 style="margin-top: 44px;" data-i18n="KEY_STEAM_H">Using your own Steam key</h2>
+                <p style="max-width: 62ch;" data-i18n="KEY_STEAM_P_html">
+                    This is optional and is worth doing if you import libraries frequently. The
+                    included key is a single quota shared by all users of Parallax. You can
+                    obtain your own at <a
+                    href="https://steamcommunity.com/dev/apikey">steamcommunity.com/dev/apikey</a>
+                    and enter it in <em>Settings → API</em>. A key you enter is always used in
+                    preference to the included one.
+                </p>
+            </section>
+        </main>
+
+        <footer class="foot">
+            <div class="wrap foot__in">
+                <div data-i18n="FOOT_BY_html">
+                    Parallax Launcher — created by Arda Yalın Özkan.<br>
+                    Free software under the
+                    <a href="https://github.com/ArdaYalinOzkan/parallax-launcher/blob/main/LICENSE">GNU GPL v3</a>.
+                </div>
+                <div>
+                    <a href="index.html" data-i18n="FOOT_GUIDES">All guides</a> ·
+                    <a href="https://github.com/ArdaYalinOzkan/parallax-launcher" data-i18n="FOOT_SOURCE">Source</a> ·
+                    <a href="https://github.com/ArdaYalinOzkan/parallax-launcher/releases" data-i18n="FOOT_RELEASES">Releases</a>
+                </div>
+            </div>
+        </footer>
+    </div>
+
+    <script src="i18n.js?v=20260826d"></script>
+    <script src="site.js?v=20260826d"></script>
+    <script src="help.js?v=20260826d"></script>
+</body>
+
+</html>
